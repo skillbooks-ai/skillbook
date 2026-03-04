@@ -1,0 +1,23 @@
+{
+  "networking": [
+    "01-concepts/01-networking.md",
+    "02-infrastructure/02-security.md"
+  ],
+  "compute": [
+    "01-concepts/02-compute.md"
+  ],
+  "storage": [
+    "02-infrastructure/01-storage.md"
+  ],
+  "security": [
+    "01-concepts/01-networking.md",
+    "02-infrastructure/02-security.md"
+  ],
+  "scaling": [
+    "01-concepts/02-compute.md",
+    "02-infrastructure/01-storage.md"
+  ],
+  "containers": [
+    "01-concepts/02-compute.md"
+  ]
+}

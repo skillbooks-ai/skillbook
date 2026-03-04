@@ -1,0 +1,36 @@
+{
+  "name": "cloud-infrastructure",
+  "version": "1.0.0",
+  "description": "Comprehensive guide to cloud infrastructure fundamentals, networking, compute, storage, and security",
+  "price": "$10.00",
+  "pages": 6,
+  "structure": {
+    "tagIndex": "TAG-INDEX.json"
+  },
+  "metadata": {
+    "skillbooks-tags": true,
+    "license": "all-rights-reserved",
+    "author": "Agent Skills Platform",
+    "category": "cloud-computing"
+  },
+  "sections": [
+    {
+      "id": "01-concepts",
+      "title": "Concepts",
+      "pages": [
+        "00-overview.md",
+        "01-networking.md",
+        "02-compute.md"
+      ]
+    },
+    {
+      "id": "02-infrastructure",
+      "title": "Infrastructure",
+      "pages": [
+        "00-overview.md",
+        "01-storage.md",
+        "02-security.md"
+      ]
+    }
+  ]
+}

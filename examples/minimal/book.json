@@ -1,0 +1,12 @@
+{
+  "id": "minimal-example",
+  "title": "Quick Reference Guide",
+  "description": "A compact quick reference guide for basic operations and common tasks.",
+  "version": "1.0.0",
+  "author": "Skillbook Author",
+  "language": "en",
+  "verified": false,
+  "structure": {
+    "readme": "README.md"
+  }
+}
