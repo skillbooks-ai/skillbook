@@ -1,41 +1,42 @@
 # Getting Started
 
-Welcome to your first steps in using this skillbook. This guide walks you through the essential information you need to begin.
+This page explains how to navigate a minimal skillbook and use its metadata correctly.
 
-## Prerequisites
+## What to Check First
 
-Before you begin, ensure you have access to a text editor capable of viewing markdown files. Any modern web browser will also work for previewing content.
+- Confirm `SKILL.md` exists at the repository root.
+- Confirm `book.json` exists with required fields.
+- Confirm this section includes `00-overview.md` and at least one content page.
 
-## Basic Concepts
+## Navigation Basics
 
-Understanding a few key concepts will help you navigate effectively:
+- Use the `SKILL.md` table of contents to choose pages.
+- Resolve paths relative to the book root.
+- Fetch only the pages needed for the current task.
 
-1. **Files and Structure** — Everything is organized in a logical folder hierarchy
-2. **Markdown Format** — Content uses standard markdown for easy reading and editing
-3. **Navigation** — Use the table of contents to jump between sections quickly
+## Frontmatter Basics
 
-## Quick Start Steps
+A valid skillbook frontmatter block includes Agent Skills base fields plus `metadata.skillbooks-*` fields.
+All metadata values are strings, including `skillbooks-pages` and `skillbooks-price`.
 
-Follow these simple steps to get oriented:
+## Practical Workflow
 
-1. Open the README.md file first for an overview
-2. Review the SKILL.md file for metadata and navigation help
-3. Explore each section sequentially to build your understanding
+1. Read `SKILL.md` to identify relevant page paths.
+2. Open `00-overview.md` for section-level orientation.
+3. Read the target content page.
+4. Follow cross-references for adjacent topics.
 
-## Tips for Success
+## Common Mistakes
 
-- Take notes as you go through each section
-- Practice the examples provided in your own environment
-- Refer back to this guide whenever you need a refresher
+- Using flat chapter files instead of section folders.
+- Omitting `00-overview.md` from a section.
+- Leaving TOC entries without one-line descriptions.
 
-## Common Questions
+## Validation Reminder
 
-**Q: Do I need any special software?**
-A: No. Any text editor or markdown viewer will work.
+Before publishing, run `skillbook validate ./my-book` and address structural errors first.
+Line-length warnings can be handled after correctness checks pass.
 
-**Q: How long does it take to complete?**
-A: This skillbook is designed for quick consumption, typically 15-30 minutes.
+## See Also
 
-## Summary
-
-You now have the foundational knowledge to proceed. The concepts introduced here will support everything else in this guide.
+- [Basics Overview](./00-overview.md)

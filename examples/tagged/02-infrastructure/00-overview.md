@@ -1,68 +1,24 @@
----
-title: Infrastructure Deployment Overview
-tags: [infrastructure, deployment]
----
+# Infrastructure Overview
 
-# Infrastructure Deployment Overview
+This section covers operational infrastructure concerns: storage architecture, security controls, and deployment reliability.
 
-This section covers the practical aspects of deploying and managing cloud infrastructure, including storage solutions, security hardening, and operational best practices.
+## When to Read This Section
 
-## Infrastructure as Code (IaC)
+- You are deploying workloads and need durable storage patterns.
+- You are defining security baselines and compliance controls.
+- You need practical operating guidance beyond conceptual design.
 
-Infrastructure as Code defines infrastructure through configuration files, enabling version control, automated provisioning, and consistent deployments.
+## Pages in This Section
 
-### Popular IaC Tools
+- `00-overview.md` — Section orientation, file index, and recommended reading order
+- `01-storage.md` — Storage options, database services, and scaling techniques
+- `02-security.md` — IAM, encryption, monitoring, and incident-response controls
 
-- **Terraform**: Provider-agnostic declarative infrastructure
-- **AWS CloudFormation**: AWS-native template-based provisioning
-- **Ansible**: Configuration management and automation
-- **Pulumi**: Infrastructure as code using programming languages
+## Reading Guidance
 
-## Deployment Strategies
+Pages are independent. For implementation planning, start with `01-storage.md` and then `02-security.md`.
+Use tags for direct lookup when navigating by domain rather than section order.
 
-### Blue-Green Deployments
-Run two identical production environments. Switch traffic from blue to green after validating the new version.
+## See Also
 
-### Canary Releases
-Gradually roll out changes to a small subset of users before full deployment. Reduces risk of widespread issues.
-
-### Rolling Updates
-Incrementally update instances, maintaining capacity throughout the deployment process.
-
-## Continuous Integration/Continuous Deployment
-
-CI/CD pipelines automate the build, test, and deployment process:
-
-1. **Code Commit**: Developers push code to version control
-2. **Build**: Automated compilation and packaging
-3. **Test**: Run automated tests at multiple stages
-4. **Deploy**: Provision infrastructure and deploy applications
-
-## Monitoring and Observability
-
-Effective infrastructure management requires visibility:
-
-- **Metrics**: Quantitative measurements (CPU, memory, request latency)
-- **Logs**: Detailed event records for troubleshooting
-- **Traces**: Request flow across distributed systems
-
-## Disaster Recovery
-
-Plan for infrastructure failures with:
-
-- **Backup strategies**: Regular snapshots and data replication
-- **Recovery procedures**: Documented runbooks for restoration
-- **RTO/RPO definitions**: Recovery Time Objective and Recovery Point Objective targets
-
-## Cost Optimization
-
-Cloud resources can become expensive without proper management:
-
-- Right-size instances based on actual usage
-- Use reserved instances for predictable workloads
-- Implement auto-scaling to match demand
-- Monitor and alert on unexpected cost increases
-
-## Next Steps
-
-Continue to storage infrastructure for database and data management strategies.
+- [Concepts Overview](../01-concepts/00-overview.md)

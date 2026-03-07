@@ -2,66 +2,65 @@
 
 ## Overview
 
-Skillbook Format is designed as a **strict superset** of the Agent Skills open standard. Every valid Skillbook `SKILL.md` file is also a valid Agent Skills file, meaning existing tools can consume Skillbooks without any modification. This ensures backward compatibility while enabling powerful extensions for Skillbook-aware tools.
+Skillbook Format is a strict superset of the Agent Skills open standard. Every valid skillbook `SKILL.md` is a valid Agent Skills file.
 
-## Field Comparison
+Base Agent Skills tools can consume the entry point directly, while Skillbook-aware tools add support for multi-page navigation, pricing metadata, and publishing workflows.
 
-### Standard Agent Skills Fields
-- `name` — skill identifier
-- `description` — human-readable summary
-- `license` — SPDX license expression
-- `compatibility` — tool/version requirements (frontmatter)
-- Standard directories: `SKILL.md`, `scripts/`, `references/`, `assets/`
+## Field Model
 
-### Skillbook Extensions (namespaced under `skillbooks-`)
-- `skillbooks-version` — format version
-- `skillbooks-category` — taxonomy classification
-- `skillbooks-tags` — searchable keywords
-- `skillbooks-author` — creator information
-- `skillbooks-homepage` — documentation URL
-- `skillbooks-repository` — source control location
-- `skillbooks-versions` — version history
-- `skillbooks-dependencies` — runtime requirements
+### Agent Skills Base Fields (top-level frontmatter)
 
-## Discovery
+- `name`
+- `description`
+- `license`
+- `compatibility` (optional)
+- `metadata` (optional string map)
 
-Agent Skills consumers discover skills via:
-1. Scanning `~/.agent-skills/` or project-local `.agent-skills/`
-2. Reading root-level `SKILL.md` for metadata
-3. Executing scripts from the `scripts/` directory
+### Skillbook Extension Fields (`metadata.skillbooks-*`)
 
-Skillbook-aware tools perform **additional discovery**:
-- Check for `skillbooks.json` manifest alongside `SKILL.md`
-- Index extended metadata for advanced search/filtering
-- Validate namespace-prefixed fields
+- `skillbooks-title`
+- `skillbooks-server`
+- `skillbooks-version`
+- `skillbooks-pages`
+- `skillbooks-price`
+- `skillbooks-tags` (optional, `"true"` when `TAG-INDEX.json` is present)
 
-## Migration Guide: Agent Skill → Skillbook
+All extension values are strings for Agent Skills compatibility.
 
-1. **Keep existing `SKILL.md`** — already valid
-2. **Add skillbook frontmatter** to the YAML header:
+## Discovery Behavior
+
+Agent Skills consumers discover skills by reading root `SKILL.md` and standard directories (`scripts/`, `references/`, `assets/`).
+
+Skillbook-aware consumers additionally:
+
+- Parse table-of-contents paths in `SKILL.md`
+- Fetch paid pages from `{server}/{name}/{path}`
+- Optionally fetch `{server}/{name}/TAG-INDEX.json` for O(1) tag lookup
+
+## Migration: Agent Skill to Skillbook
+
+1. Keep your existing Agent Skills-compatible `SKILL.md` frontmatter.
+2. Add Skillbook extension fields under `metadata` using `skillbooks-` prefixes.
+3. Add section directories with `00-overview.md` and content pages.
+4. Add `book.json` for catalog metadata.
+
+Example:
 
 ```yaml
 ---
-name: my-skill
-description: Does useful work
-license: MIT
-compatibility:
-  - claude-code: ">=1.0"
-skillbooks-version: "1.0"
-skillbooks-category: development
-skillbooks-tags: [testing, automation]
+name: my-skillbook
+description: Deep reference for my domain.
+license: all-rights-reserved
+compatibility: "Requires HTTP access to skillbooks.ai"
+metadata:
+  skillbooks-title: "My Skillbook"
+  skillbooks-server: "https://skillbooks.ai"
+  skillbooks-version: "1.0.0"
+  skillbooks-pages: "12"
+  skillbooks-price: "$6.00"
 ---
 ```
 
-3. **Optional**: Add `skillbooks.json` for rich metadata
-4. **Retain directory structure** — no changes required
-
 ## Non-Skillbook-Aware Tool Behavior
 
-When a standard Agent Skills tool loads a Skillbook:
-- It reads only the base fields (`name`, `description`, etc.)
-- Extended `skillbooks-*` fields are **ignored silently**
-- All scripts in `scripts/` execute normally
-- Directory conventions remain fully compatible
-
-Skillbooks degrade gracefully — they work everywhere Agent Skills works, with enhanced features available only in Skillbook-aware tools.
+Tools that only implement Agent Skills will still parse standard fields and ignore unknown `metadata` keys. This preserves compatibility while allowing Skillbook-specific features in enhanced runtimes.

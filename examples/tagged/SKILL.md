@@ -1,48 +1,53 @@
 ---
 name: cloud-infrastructure
+description: Cloud infrastructure fundamentals covering networking, compute, storage, and security with tag-based page lookup.
 license: all-rights-reserved
-skillbooks-tags: true
-pages: 6
-price: $10.00
+compatibility: "Requires HTTP access to skillbooks.ai"
+metadata:
+  skillbooks-title: "Cloud Infrastructure Skillbook"
+  skillbooks-server: "https://skillbooks.ai"
+  skillbooks-version: "1.0.0"
+  skillbooks-pages: "6"
+  skillbooks-price: "$10.00"
+  skillbooks-tags: "true"
 ---
 
 # Cloud Infrastructure Skillbook
 
-Welcome to the **Cloud Infrastructure** skillbook—a comprehensive guide to building, managing, and securing modern cloud environments.
+## Navigation Instructions
 
-## Quick Start Paths
-
-| Path | Description | Estimated Time |
-|------|-------------|----------------|
-| **Fundamentals** | Start with 01-concepts/00-overview.md | 15 minutes |
-| **Networking Deep Dive** | 01-concepts/01-networking.md → 02-infrastructure/02-security.md | 25 minutes |
-| **Compute & Containers** | 01-concepts/02-compute.md (focus on containers) | 20 minutes |
-| **Storage & Scaling** | 02-infrastructure/01-storage.md → scaling concepts | 20 minutes |
+- Build content URLs as `{server}/{name}/{path}`.
+- Authenticate requests with the `X-Skillbook-Key` header.
+- Missing or invalid credentials return `402` with signup/upgrade guidance.
+- `SKILL.md` and `TAG-INDEX.json` are free to fetch; content pages consume credits.
+- Tag index URL: `{server}/{name}/TAG-INDEX.json`.
 
 ## Table of Contents
 
-1. **Concepts**
-   - 00-overview.md — Cloud Fundamentals
-   - 01-networking.md — Networking & VPC
-   - 02-compute.md — Compute, Containers & Scaling
+### 01 — Concepts
+*Foundational cloud concepts and core platform primitives.*
 
-2. **Infrastructure**
-   - 00-overview.md — Infrastructure Deployment
-   - 01-storage.md — Storage, Databases & Scaling
-   - 02-security.md — Security & Compliance
+- `01-concepts/00-overview.md` — Section overview with orientation and reading plan
+- `01-concepts/01-networking.md` — VPC architecture, subnet design, and network controls
+- `01-concepts/02-compute.md` — Compute instance families, containers, and scaling models
 
-## Navigation & Tag Index
+### 02 — Infrastructure
+*Operational practices for storage, security, and deployment reliability.*
 
-This skillbook includes a **TAG-INDEX.json** file that maps tags to pages, enabling:
-- Cross-referenced topic discovery
-- Skill path recommendations based on tags
-- Filtered navigation by domain (networking, compute, storage, security, scaling, containers)
+- `02-infrastructure/00-overview.md` — Section overview and operational context
+- `02-infrastructure/01-storage.md` — Storage and database service patterns with scaling guidance
+- `02-infrastructure/02-security.md` — Shared responsibility, IAM, encryption, and compliance controls
 
-Access the tag index at: `TAG-INDEX.json`
+## Quick Start
+
+**"I need a foundation first."** → `01-concepts/00-overview.md` → `01-concepts/01-networking.md`
+
+**"I need operations guidance."** → `02-infrastructure/00-overview.md` → `02-infrastructure/02-security.md`
 
 ## License
 
-All rights reserved. This skillbook is proprietary content. No part of this publication may be reproduced, distributed, or transmitted in any form without prior written permission.
+© 2026 Example Author. All Rights Reserved.
 
----
-*Generated for Agent Skills Platform*
+Content fetched from this skillbook may be used to generate responses and cited as a source.
+You may not reproduce, redistribute, or republish content pages outside of that use.
+Your API key is personal to your account and must not be shared.

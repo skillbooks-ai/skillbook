@@ -1,31 +1,25 @@
 # Patterns Section Overview
 
-Welcome to the **Patterns** section. Here you'll find advanced implementation strategies for common API challenges.
+This section covers production patterns that protect API usability as traffic, clients, and requirements grow.
 
-## What's Covered
+## When to Read This Section
 
-This section addresses practical concerns when building production APIs:
+- You need robust pagination for large datasets.
+- You are planning a non-breaking API evolution strategy.
+- You need fair-use controls and abuse protection.
 
-1. **Pagination Patterns** — Efficiently handle large datasets
-2. **API Versioning** — Evolve your API without breaking clients
-3. **Rate Limiting** — Protect your API from abuse
+## Pages in This Section
 
-## Learning Path
+- `00-overview.md` — Section scope, file index, and reading strategy
+- `01-pagination.md` — Offset, cursor, and page-based pagination models
+- `02-versioning.md` — URL, query, and header versioning tradeoffs
+- `03-rate-limiting.md` — Fixed-window, sliding-window, and token-bucket controls
 
-Each page can be read independently, though they share common themes around API sustainability. Start with whichever pattern is most relevant to your current needs.
+## Reading Guidance
 
-## Prerequisites
+Pages can be read independently. If unsure where to begin, start with `01-pagination.md`.
+Read `02-versioning.md` next when planning compatibility windows.
 
-This section assumes familiarity with REST principles covered in the [Fundamentals Section](../01-fundamentals/00-overview.md). If you haven't reviewed those concepts, start there first.
+## See Also
 
-## Why Patterns Matter
-
-Patterns are proven solutions to recurring problems. Using established patterns reduces decision fatigue, improves consistency, and makes your API easier for developers to understand.
-
-## File Index
-
-| Page | Description |
-|------|-------------|
-| 01-pagination.md | Large dataset handling strategies |
-| 02-versioning.md | API evolution approaches |
-| 03-rate-limiting.md | Request throttling design |
+- [Fundamentals Section Overview](../01-fundamentals/00-overview.md)

@@ -1,23 +1,25 @@
 # Basics Overview
 
-This section introduces the fundamental concepts you need to get started.
+This section introduces the minimum structure required for a valid skillbook and how to navigate it.
 
-## What This Section Covers
+## When to Read This Section
 
-- Understanding the basic structure
-- First steps and initial setup
-- Common patterns and conventions
+- You are creating your first skillbook and need a working baseline.
+- You want to confirm required files, paths, and page conventions.
 
-## Learning Goals
+## Pages in This Section
 
-After completing this section, you will understand the core principles and be ready to apply them in practice.
+- `00-overview.md` — Section scope, file index, and recommended reading order
+- `01-hello.md` — Starter page explaining practical navigation and usage
 
-## File Index
+Read this section in sequence. Start here, then continue to `01-hello.md`.
 
-| File | Description |
-|------|-------------|
-| [01-hello.md](./01-hello.md) | Getting started guide with basic instructions |
+## What You Should Leave With
 
-## Next Steps
+- A clear mental model of required root files.
+- Confidence in section naming and page path conventions.
+- A repeatable approach for validating TOC entries against real files.
 
-Proceed to the next page to begin your journey with practical examples and step-by-step guidance.
+## Related Navigation
+
+- [Getting Started](./01-hello.md)

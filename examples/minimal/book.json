@@ -1,9 +1,9 @@
 {
   "id": "minimal-example",
   "title": "Quick Reference Guide",
-  "description": "A compact quick reference guide for basic operations and common tasks.",
+  "description": "A compact skillbook showing the minimum valid Skillbook Format structure.",
   "version": "1.0.0",
-  "author": "Skillbook Author",
+  "author": "Example Author",
   "language": "en",
   "verified": false,
   "structure": {

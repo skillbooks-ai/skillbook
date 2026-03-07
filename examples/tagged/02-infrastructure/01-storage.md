@@ -1,6 +1,6 @@
 ---
 title: Storage, Databases & Scaling
-tags: [storage, databases, scaling]
+tags: [storage, scaling]
 ---
 
 # Storage Solutions and Database Architecture
@@ -74,4 +74,5 @@ Encrypt data at rest and in transit. Use IAM policies for access control and aud
 
 ## Related Topics
 
-Explore security infrastructure to learn about protecting your data and meeting compliance requirements.
+- [Security & Compliance](./02-security.md) — Controls for encryption, IAM, and auditing of storage systems
+- [Compute Resources and Containerization](../01-concepts/02-compute.md) — Workload scaling patterns that drive storage choices

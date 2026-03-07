@@ -74,4 +74,5 @@ Container security involves scanning images for vulnerabilities, implementing le
 
 ## Related Topics
 
-Explore storage infrastructure to learn about persistent data management for containerized applications.
+- [Storage Solutions and Database Architecture](../02-infrastructure/01-storage.md) — Persistent data patterns for scaled services
+- [Networking & Virtual Private Clouds](./01-networking.md) — Network topology and connectivity for compute workloads

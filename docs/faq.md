@@ -2,35 +2,32 @@
 
 ## 1. What is the difference between an Agent Skill and a Skillbook?
 
-Agent Skills are cheat sheets — quick reference guides for immediate tasks. Skillbooks are textbooks: deep, structured, multi-page knowledge resources that teach comprehensively. A skillbook's `SKILL.md` file is a valid Agent Skill, so it works as both. Same entry point, dramatically more depth.
+Agent Skills define the interoperability entry point (`SKILL.md`). Skillbooks build on that entry point with multi-page structure, catalog metadata, pricing, and publishing workflows.
 
 ## 2. Do I need to use skillbooks.ai to publish?
 
-No. The Skillbook Format is open and free to use. **skillbooks.ai** is the official marketplace that provides payments, discovery, validation, and hosting. Self-hosting your skillbook is completely valid — you can publish anywhere that serves markdown.
+No. The format is open and can be self-hosted anywhere markdown files are served over HTTP. The official platform adds discovery, billing, validation, and managed hosting.
 
 ## 3. How is pricing calculated?
 
-Authors set a full book price when publishing. Per-page price is calculated as `full_price / total_pages`. Revenue split is **80% to the author** and **20% to the platform**. This applies to all paid skillbooks on the marketplace.
+Authors set a full-book price. Per-page price is derived as `full_book_price / total_pages`. Marketplace revenue split is 80% author and 20% platform.
 
-## 4. Can I use this for free/open content?
+## 4. Can I publish free content?
 
-Yes. Simply set the price to **$0.00**. The format works identically — readers can still discover, download, and use your skillbook. Free skillbooks are a great way to build an audience or share open knowledge.
+Yes. A book can be priced at `$0.00` and still use the same structure and metadata.
 
 ## 5. What agents support this?
 
-Any agent that supports Agent Skills can discover and use skillbooks. This includes **30+ tools** in the ecosystem. For paid content, agents need HTTP capability and your API key to authenticate requests.
+Any agent runtime that supports Agent Skills can parse skillbook entry points. Paid content retrieval requires HTTP support and API-key-based authentication.
 
 ## 6. How does versioning affect billing?
 
-- **Patch updates** (e.g., v1.0.1): No new charges — readers keep access.
-- **Minor updates** (e.g., v1.1.0): New pages cost; existing pages remain free.
-- **Major updates** (e.g., v2.0.0): All pages are charged again, as it's treated as a new book.
+- Patch bump (`1.0.0` → `1.0.1`): no new charges.
+- Minor bump (`1.0.0` → `1.1.0`): new pages may cost; previously accessed pages remain free.
+- Major bump (`1.0.0` → `2.0.0`): treated as a new book; all pages are charged again.
 
 ## 7. What is TAG-INDEX.json?
 
-An optional metadata file that maps tags to specific pages for **O(1) lookup speed**. It allows agents to jump directly to relevant sections without parsing the full skillbook. It's served free alongside `SKILL.md` and is recommended for larger skillbooks.
+`TAG-INDEX.json` is an optional root file mapping tags to page paths for O(1) lookup. It is recommended when pages use tags and is served free alongside `SKILL.md`.
 
----
-
-*For more details, see the full [Skillbook Format Specification](./spec.md).*
-```
+For the full normative rules, see [FORMAT-REFERENCE.md](../FORMAT-REFERENCE.md) and [spec/](../spec/).

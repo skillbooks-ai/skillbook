@@ -1,31 +1,25 @@
 # Fundamentals Section Overview
 
-Welcome to the **Fundamentals** section of API Design Patterns. This section establishes the core concepts you need to build professional APIs.
+This section establishes the foundational concepts for designing consistent, maintainable APIs.
 
-## What's Covered
+## When to Read This Section
 
-This foundational section includes four pages:
+- You are defining API conventions for a new service.
+- You need a baseline for URI design and error consistency.
+- You want shared vocabulary before tackling advanced patterns.
 
-1. **REST Principles** — The architectural constraints and principles behind RESTful design
-2. **Resource Design** — How to name, structure, and organize your API resources
-3. **Error Handling** — Building consistent, informative error responses
+## Pages in This Section
 
-## Learning Path
+- `00-overview.md` — Section scope, file index, and recommended reading order
+- `01-rest-principles.md` — REST constraints and why they matter in real systems
+- `02-resource-design.md` — Resource naming, structure, and query parameter usage
+- `03-error-handling.md` — Standardized status codes and actionable error payloads
 
-Start with [REST Principles](./01-rest-principles.md) to understand the foundation, then proceed through resource design and error handling. These concepts build upon each other sequentially.
+## Reading Guidance
 
-## Prerequisites
+Read in sequence for best results: `01-rest-principles.md` → `02-resource-design.md` → `03-error-handling.md`.
+If you already know REST constraints, you can start at `02-resource-design.md`.
 
-Basic understanding of HTTP methods (GET, POST, PUT, DELETE) and web services is recommended before diving into this section.
+## See Also
 
-## Related Sections
-
-After completing Fundamentals, continue to [Patterns Section](../02-patterns/00-overview.md) for advanced implementation strategies.
-
-## File Index
-
-| Page | Description |
-|------|-------------|
-| 01-rest-principles.md | REST architectural principles |
-| 02-resource-design.md | Resource naming and structure |
-| 03-error-handling.md | Error response patterns |
+- [Patterns Section Overview](../02-patterns/00-overview.md)

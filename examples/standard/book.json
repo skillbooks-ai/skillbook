@@ -1,37 +1,12 @@
 {
+  "id": "api-design-patterns",
   "title": "API Design Patterns",
-  "description": "Master API design patterns for building robust REST and GraphQL interfaces",
+  "description": "Patterns for designing resilient, evolvable APIs across fundamentals and production operations.",
+  "version": "1.0.0",
   "author": "Example Author",
   "language": "en",
-  "version": "1.0.0",
-  "pages": 8,
-  "sections": [
-    {
-      "id": "01-fundamentals",
-      "title": "Fundamentals",
-      "pages": [
-        "01-fundamentals/00-overview.md",
-        "01-fundamentals/01-rest-principles.md",
-        "01-fundamentals/02-resource-design.md",
-        "01-fundamentals/03-error-handling.md"
-      ]
-    },
-    {
-      "id": "02-patterns",
-      "title": "Patterns",
-      "pages": [
-        "02-patterns/00-overview.md",
-        "02-patterns/01-pagination.md",
-        "02-patterns/02-versioning.md",
-        "02-patterns/03-rate-limiting.md"
-      ]
-    }
-  ],
-  "metadata": {
-    "skillbooks-title": "API Design Patterns",
-    "skillbooks-server": "https://skillbooks.ai",
-    "skillbooks-version": "1.0.0",
-    "skillbooks-pages": 8,
-    "skillbooks-price": "$8.00"
+  "verified": false,
+  "structure": {
+    "readme": "README.md"
   }
 }

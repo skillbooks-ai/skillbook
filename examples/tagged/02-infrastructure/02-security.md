@@ -1,6 +1,6 @@
 ---
 title: Security & Compliance
-tags: [security, networking, compliance]
+tags: [security, networking]
 ---
 
 # Cloud Security and Compliance
@@ -87,4 +87,5 @@ Develop and test incident response procedures. Maintain runbooks for common secu
 
 ## Related Topics
 
-Return to networking concepts for deeper coverage of VPC security and network segmentation strategies.
+- [Networking & Virtual Private Clouds](../01-concepts/01-networking.md) — Network segmentation and access-control foundations
+- [Infrastructure Overview](./00-overview.md) — Section-level context for secure infrastructure operations

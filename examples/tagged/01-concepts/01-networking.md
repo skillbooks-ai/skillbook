@@ -1,6 +1,6 @@
 ---
 title: Networking & VPC
-tags: [networking, vpc, security]
+tags: [networking, security]
 ---
 
 # Networking & Virtual Private Clouds
@@ -56,4 +56,5 @@ VPC peering enables direct traffic routing between two VPCs, even across differe
 
 ## Related Topics
 
-Continue to security infrastructure to learn about advanced networking security measures.
+- [Security & Compliance](../02-infrastructure/02-security.md) — Advanced controls for identity, encryption, and monitoring
+- [Compute Resources and Containerization](./02-compute.md) — Capacity and orchestration decisions that depend on network design

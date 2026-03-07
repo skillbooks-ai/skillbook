@@ -1,63 +1,43 @@
 # Content Pages
 
-This section defines the structure and requirements for individual content pages within a Skillbook.
+This section defines structure and quality requirements for section overviews and content pages.
 
 ## Section Overview (00-overview.md)
 
-Every section folder MUST contain a `00-overview.md` as its first file. This file serves as the section's entry point and provides orientation.
+Every section folder MUST contain `00-overview.md` as its first file.
 
 ### Required Elements
 
-- **What this section covers** — 1-2 sentences describing the section's scope
-- **When to read this section** — use cases or questions that bring readers here
-- **File index** — every file in the section with a one-line description
-- **Reading order** — specify if pages should be read sequentially or independently
+- What the section covers (1-2 sentences)
+- When to read the section (triggering questions/tasks)
+- File index with every file and one-line description
+- Reading-order guidance (sequential or independent)
 
-### Target Length
+### Length Guidance
 
-Section overviews MUST be 20-40 lines. They deliver real orientation value and are paid pages like any content page.
-
-### Example
-
-```markdown
-# Risk Classification
-
-The EU AI Act defines four risk tiers for AI systems. This section explains each tier in depth
-with examples, edge cases, and practical classification guidance.
-
-## When to Read This Section
-
-- You need to determine which risk tier your AI system falls into
-- You've been told you're "high-risk" and want to understand what that means
-
-## Pages in This Section
-
-- `01-four-tiers.md` — The four risk tiers at a glance with examples
-- `02-unacceptable-risk.md` — The 8 prohibited practices in depth
-
-Pages can be read independently. Start with `01-four-tiers.md` for an overview.
-```
+Section overviews SHOULD target 20-40 lines. They are paid pages and SHOULD provide substantive orientation.
 
 ## Content Page Rules
 
-Each content page MUST be a standalone markdown file. Pages follow these rules:
+Each content page MUST be a standalone markdown file.
 
-- **Length**: 40-100 lines. Long enough to be useful, short enough to be token-efficient.
-- **One concept per page**: If covering two ideas, split into two pages.
-- **Self-contained**: A page MUST make sense without requiring other pages first.
-- **Structure**: Use headers, lists, and examples. Avoid walls of prose.
+- Length SHOULD target 40-100 lines.
+- Each page SHOULD focus on one concept.
+- Pages SHOULD be self-contained and understandable independently.
+- Pages SHOULD use structure (headers, lists, examples) to avoid dense prose.
+- Pages MUST use plain markdown (no HTML or custom syntax requirements).
 
 ## Cross-References
 
-Link to related pages using relative paths. Place cross-references at the end of the page.
+Pages SHOULD include cross-references to related pages using relative paths, typically near the end of the file.
 
-```
+```markdown
 See also: [Terminology](../01-core/02-terminology.md)
 ```
 
 ## Tags (Optional)
 
-Pages MAY include tags in YAML frontmatter for categorization:
+Pages MAY include tags in YAML frontmatter:
 
 ```yaml
 ---
@@ -67,13 +47,13 @@ tags: [refrigerants, safety, high-pressure]
 
 ### Tag Rules
 
-- Lowercase, hyphen-separated: `high-pressure` (not `high_pressure`)
-- Consistent spelling across all pages
-- Meaningful to the book's domain
+- Tags SHOULD be lowercase and hyphen-separated.
+- Tag spelling SHOULD be consistent across the book.
+- Tags SHOULD be meaningful to the domain.
 
 ## TAG-INDEX.json
 
-If any page includes tags, the book MUST include a `TAG-INDEX.json` at the root directory.
+If pages have tags, the book SHOULD include `TAG-INDEX.json` at the root.
 
 ### Format
 
@@ -93,21 +73,18 @@ If any page includes tags, the book MUST include a `TAG-INDEX.json` at the root 
 ### Requirements
 
 - Flat map: `{ "tag": ["path/to/page.md", ...] }`
-- Paths relative to book root, matching TOC paths
-- Enables O(1) lookup for tag-based queries
-- Served free alongside SKILL.md
+- Paths MUST be relative to the book root and match TOC paths.
+- The file is served free alongside `SKILL.md` for O(1) tag lookup.
+- `TAG-INDEX.json` SHOULD be generated with `skillbook tag-index ./my-book`.
+- Tag/index consistency SHOULD be validated with `skillbook validate ./my-book`.
 
-## What Makes a Good Page
+## Quality Signals
 
-- Start with one sentence stating what the page covers
-- Deliver the core content immediately
-- Use headers, lists, and examples for structure
-- End with cross-references to related pages
-- Cite sources where applicable
+Good pages usually:
 
-## What to Avoid
+- Open with one sentence explaining scope
+- Deliver core material without filler
+- End with cross-references
+- Cite sources when applicable
 
-- **Walls of prose**: Use structure (headers, lists, examples)
-- **Filler phrases**: Do not write "In this section we will explore..." — just explore it
-- **Giant pages**: If over 100 lines, split into multiple pages
-- **Orphan pages**: Every page MUST be in the TOC and reachable via cross-references
+Authors SHOULD avoid wall-of-prose pages, filler transitions, oversized pages, and orphan pages not represented in the TOC.
