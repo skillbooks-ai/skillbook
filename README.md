@@ -1,4 +1,4 @@
-# skillbook-format
+# skillbook
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Spec Version](https://img.shields.io/badge/spec-v1.1-green.svg)](spec/)
