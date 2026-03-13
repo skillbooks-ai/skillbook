@@ -14,8 +14,8 @@ with value: quick lookups are cheap, deep dives cost more.
 
 | Tier | Full Book | Per-Page (80 pages) | Typical Content |
 |------|----------|---------------------|-----------------|
-| Free | $0.00 | $0.00 | Open specifications, public domain content |
-| Micro | $2–5 | $0.03–0.06 | Quick references, cheat sheets |
+| Free | $0.00 | $0.00 | Open specs, samples, community resources |
+| Micro | $2–5 | $0.03–0.06 | Public domain works, quick references, cheat sheets |
 | Standard | $5–15 | $0.06–0.19 | Methodologies, textbooks |
 | Premium | $15–30 | $0.19–0.38 | Specialized professional content |
 | Enterprise | $30+ | $0.38+ | Actively maintained, high-update |
@@ -24,7 +24,12 @@ with value: quick lookups are cheap, deep dives cost more.
 
 Set `skillbook-price: "$0.00"` (SKILL.md) and `"price": "$0.00"` (package.json) for free content.
 All pages are accessible without credits. This is appropriate for open specifications,
-public domain material, and community resources.
+promotional samples, and community resources.
+
+Note: public domain content (Shakespeare, government publications, classic literature) still
+takes work to structure, verify, and package into a well-navigated skillbook. That curation
+has value — pricing at $2–5 is reasonable and mirrors how public domain ebooks are sold on
+every major bookstore.
 
 ## Platform Terms
 
