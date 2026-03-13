@@ -28,7 +28,7 @@ the same pattern as `eslintConfig`, `jest`, or `prettier`.
   "skillbook": {
     "title": "EU AI Act",
     "author": "European Parliament and Council of the European Union",
-    "contact": "author@skillbooks.ai",
+    "contact": "https://x.com/skillbooks",
     "server": "https://skillbooks.ai",
     "pages": 94,
     "price": "$14.00",

@@ -21,7 +21,7 @@ compatibility: "Requires HTTPS access to https://skillbooks.ai"
 metadata:
   skillbook-title: "EU AI Act"
   skillbook-author: "European Parliament and Council of the European Union"
-  skillbook-contact: "author@skillbooks.ai"
+  skillbook-contact: "https://x.com/skillbooks"
   skillbook-server: "https://skillbooks.ai"
   skillbook-version: "2.0.0"
   skillbook-pages: "94"
