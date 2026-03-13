@@ -27,19 +27,22 @@ The format works anywhere: locally with your own tools, self-hosted, or publishe
 
 ## Quick Start
 
+### Create Your Own Skillbook
+
 ```bash
 npm i -g @skillbooks/cli
 skillbook init
 ```
 
-Browse the specification by reading the [SKILL.md](SKILL.md) — it's the table of contents for this skillbook.
+Then start writing content. See [Directory Structure](01-foundations/02-directory-structure.md) for the layout, [Frontmatter](02-entry-points/01-frontmatter.md) for SKILL.md metadata, and [Content Pages](03-content/02-content-pages.md) for writing rules.
 
-Or jump directly to:
-- [Agent Skills Extension](01-foundations/01-agent-skills.md) — how skillbooks extend Agent Skills
-- [Directory Structure](01-foundations/02-directory-structure.md) — how a skillbook is laid out
-- [Frontmatter](02-entry-points/01-frontmatter.md) — SKILL.md metadata format
-- [Content Pages](03-content/02-content-pages.md) — rules for writing good pages
-- [package.json](04-project/01-package-json.md) — project configuration
+### Explore the Marketplace
+
+Browse published skillbooks at [skillbooks.ai](https://skillbooks.ai). Add one to your agent with a single API key — no integration work needed.
+
+### Collaborate on the Spec
+
+This specification is open. [Read the full spec](SKILL.md), open an [issue](https://github.com/skillbooks-ai/skillbook/issues), or join the [discussion](https://github.com/skillbooks-ai/skillbook/discussions).
 
 ## Example Skillbooks
 
