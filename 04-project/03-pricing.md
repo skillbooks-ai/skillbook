@@ -1,7 +1,7 @@
 # Pricing
 
-Skillbook access is **metered per page**. Authors set the **full book price**, and per-page
-price is derived automatically:
+Skillbook access MAY be **metered per page**. When metering is enabled, authors set the
+**full book price**, and per-page price is derived automatically:
 
 ```
 page_price = full_book_price / total_pages
