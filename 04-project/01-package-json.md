@@ -79,13 +79,29 @@ Fields in both `package.json` and SKILL.md frontmatter must stay in sync:
 `skillbook validate` checks all sync rules. SKILL.md is the source of truth for agent-facing
 metadata; `package.json` is the source of truth for tooling.
 
+## Getting Started
+
+```bash
+npm i -g @skillbooks/cli
+skillbook init
+```
+
+`skillbook init` handles the setup:
+1. Prompts for name, description, author, license (like `npm init`)
+2. Prompts for skillbook-specific fields (title, content author, price, server)
+3. Writes `package.json` with the `skillbook` key, scripts, and `private: true`
+4. Adds `@skillbooks/cli` as a devDependency
+5. Scaffolds `SKILL.md` and `README.md` templates with matching metadata
+6. Creates a starter section with `00-overview.md`
+
+No hand-wiring, no template copying, no sync issues on day one.
+
 ## Why package.json?
 
-- `npm init` to start a skillbook — familiar workflow
-- `npm install @skillbooks/cli` — creator tools as a devDependency
+- Standard npm project — every developer already knows this file
 - `npm run validate` — standard scripts, works in CI
-- `private: true` prevents accidental `npm publish`
-- Every developer already knows this file
+- `private: true` prevents accidental `npm publish` (you publish to skillbooks.ai)
+- devDependencies track the exact CLI version used to build
 
 ---
 

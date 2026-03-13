@@ -27,6 +27,11 @@ Think of it as an ebook for agents: a `SKILL.md` serves as the storefront (free 
 
 ## Quick Start
 
+```bash
+npm i -g @skillbooks/cli
+skillbook init
+```
+
 Browse the specification by reading the [SKILL.md](SKILL.md) — it's the table of contents for this skillbook.
 
 Or jump directly to:
