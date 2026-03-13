@@ -44,7 +44,7 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 *What skillbooks are, how they relate to Agent Skills, and how they're structured.*
 
 - `01-foundations/00-overview.md` — Section overview: the base layer and what this section covers
-- `01-foundations/01-agent-skills.md` — The Agent Skills open standard and what the Skillbook Format adds on top
+- `01-foundations/01-agent-skills.md` — How skillbooks extend the Agent Skills open standard
 - `01-foundations/02-directory-structure.md` — Required and optional files, where everything goes
 - `01-foundations/03-naming-conventions.md` — Folder, file, and namespace naming rules
 

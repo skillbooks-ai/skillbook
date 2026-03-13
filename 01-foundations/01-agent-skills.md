@@ -1,4 +1,4 @@
-# Agent Skills Foundation
+# Agent Skills Extension
 
 Skillbooks are built on top of the **[Agent Skills](https://agentskills.io)** open standard — the
 interoperability layer adopted by 30+ tools including Claude Code, Cursor, Gemini CLI, VS Code,

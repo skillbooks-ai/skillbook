@@ -12,7 +12,7 @@ that means, how skillbooks are structured, and the naming rules that keep everyt
 
 ## Pages in This Section
 
-- `01-agent-skills.md` — The Agent Skills open standard and what the Skillbook Format adds on top
+- `01-agent-skills.md` — How skillbooks extend the Agent Skills open standard
 - `02-directory-structure.md` — Required and optional files, where everything goes
 - `03-naming-conventions.md` — Folder, file, and namespace naming rules
 

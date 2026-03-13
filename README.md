@@ -35,7 +35,7 @@ skillbook init
 Browse the specification by reading the [SKILL.md](SKILL.md) — it's the table of contents for this skillbook.
 
 Or jump directly to:
-- [Agent Skills Foundation](01-foundations/01-agent-skills.md) — how skillbooks relate to Agent Skills
+- [Agent Skills Extension](01-foundations/01-agent-skills.md) — how skillbooks extend Agent Skills
 - [Directory Structure](01-foundations/02-directory-structure.md) — how a skillbook is laid out
 - [Frontmatter](02-entry-points/01-frontmatter.md) — SKILL.md metadata format
 - [Content Pages](03-content/02-content-pages.md) — rules for writing good pages
