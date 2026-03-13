@@ -22,9 +22,9 @@ Every skillbook's `SKILL.md` is a valid Agent Skills file. This means any tool t
 - Structured multi-page content with sections and a table of contents
 - Metered per-page access and credit-based billing
 - Tag-based lookup via `TAG-INDEX.json`
-- `book.json` for tooling and verification metadata
+- Skillbook-specific config in `package.json` under the `skillbook` key
 - Source attribution and verification pipeline
-- All skillbook-specific fields are namespaced under `metadata` with a `skillbook-` prefix, ensuring forward compatibility with the Agent Skills spec
+- All skillbook-specific SKILL.md fields are namespaced under `metadata` with a `skillbook-` prefix, ensuring forward compatibility with the Agent Skills spec
 
 Because of this layered design, a skillbook works everywhere Agent Skills work — and adds structured content and commercial publishing capabilities on top.
 
@@ -36,7 +36,7 @@ Because of this layered design, a skillbook works everywhere Agent Skills work �
 eu-ai-act/
 ├── SKILL.md              ← required: agent entry point + TOC (served free)
 ├── README.md             ← required: human-readable overview (populates catalog)
-├── book.json             ← required: tooling + verification metadata
+├── package.json          ← required: project manifest + skillbook config
 ├── TAG-INDEX.json        ← optional: O(1) tag → pages lookup (served free)
 ├── sources/              ← optional, required for verified books
 │   ├── SOURCES.md        ← index of source files
@@ -69,7 +69,7 @@ Books live at the top of the namespace: `skillbooks.ai/<name>/`. Book names are 
 |---|---|
 | Agent entry point + TOC | `SKILL.md` |
 | Human-readable overview (catalog content) | `README.md` |
-| Tooling + verification metadata | `book.json` |
+| Project manifest + skillbook config | `package.json` |
 | Section overview + file index | `NN-section/00-overview.md` |
 | Content pages | `NN-section/01-page.md` through `NN-page.md` |
 | Tag → pages lookup index | `TAG-INDEX.json` |
@@ -354,41 +354,100 @@ If any pages have tags, the book **should** include a `TAG-INDEX.json` at the ro
 
 ---
 
-## book.json
+## package.json
 
-Every book requires a `book.json` at the root. This is the machine-readable manifest used by tooling — the `package.json` to SKILL.md's `README.md`. It holds fields that support the build, validation, and verification pipeline without cluttering the agent-facing SKILL.md.
+Every skillbook is a standard npm project. The `package.json` serves as both the project manifest and the skillbook configuration — no custom config file needed.
 
-Fields that overlap with SKILL.md frontmatter (`id`/`name`, `version`) must stay in sync. `skillbook validate` checks this.
+Standard npm fields (`name`, `version`, `description`, `author`, `license`, `keywords`) serve their usual purpose. Skillbook-specific configuration lives under the `skillbook` key, following the same pattern as `eslintConfig`, `jest`, or `prettier`.
 
 ```json
 {
-  "id": "eu-ai-act",
-  "language": "en",
-  "verified": false,
-  "sources": {
-    "enabled": true,
-    "path": "sources/",
-    "index": "sources/SOURCES.md"
+  "name": "eu-ai-act",
+  "version": "2.0.0",
+  "description": "The EU AI Act — risk classification, compliance requirements, and enforcement.",
+  "author": "brookr",
+  "license": "CC-BY-NC-4.0",
+  "keywords": ["ai-regulation", "eu-law", "compliance", "risk-classification"],
+  "private": true,
+  "devDependencies": {
+    "@skillbooks/cli": "^1.0.0"
   },
-  "structure": {
-    "readme": "README.md",
-    "tagIndex": "TAG-INDEX.json"
+  "scripts": {
+    "validate": "skillbook validate .",
+    "tag-index": "skillbook tag-index ."
+  },
+  "skillbook": {
+    "title": "EU AI Act",
+    "author": "European Parliament and Council of the European Union",
+    "contact": "brook@rigg.io",
+    "server": "https://skillbooks.ai",
+    "pages": 94,
+    "price": "$14.00",
+    "language": "en",
+    "verified": false,
+    "sources": {
+      "enabled": true,
+      "path": "sources/",
+      "index": "sources/SOURCES.md"
+    }
   }
 }
 ```
 
+### Standard npm Fields
+
 | Field | Required | Description |
 |-------|----------|-------------|
-| `id` | Yes | URL-safe slug. Must match `name` in SKILL.md frontmatter. |
+| `name` | Yes | URL-safe slug. Must match `name` in SKILL.md frontmatter. Used in paths and as the book identifier. |
+| `version` | Yes | Semver. Must match `skillbook-version` in SKILL.md metadata. |
+| `description` | Recommended | Short description for catalogs. Should match SKILL.md `description`. |
+| `author` | Recommended | Who published this skillbook (the packager, not necessarily the content author). |
+| `license` | Yes | SPDX license identifier. |
+| `keywords` | Recommended | Discovery tags — useful for catalog search. |
+| `private` | Recommended | Set to `true` to prevent accidental `npm publish`. Skillbooks publish to skillbooks.ai, not npmjs.com. |
+
+### Skillbook Config (under `skillbook`)
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `title` | Yes | **Display title.** The human-readable name of the book. |
+| `author` | Recommended | **Content author.** The original author of the underlying content — distinct from the top-level `author` (the skill publisher). E.g., top-level `author: brookr` published a skillbook where `skillbook.author` is `European Parliament`. |
+| `contact` | No | Contact for the skillbook creator — an email, URL, or social handle. |
+| `server` | Yes | Base URL for fetching pages. |
+| `pages` | Yes | Total page count (integer — all content pages including `00-overview.md` files). |
+| `price` | Yes | Full book price (display format, e.g., `"$14.00"`). |
 | `language` | Yes | ISO 639-1 code (`en`, `fr`, etc.). |
 | `verified` | Yes | `true` if the book has passed the verification pipeline. Set by tooling, not by hand. |
 | `sources.enabled` | If sources exist | Whether this book has a `sources/` directory. |
 | `sources.path` | If sources exist | Path to sources directory. Canonical: `"sources/"`. |
 | `sources.index` | If sources exist | Path to `SOURCES.md`. |
-| `structure.readme` | Yes | Path to `README.md`. |
-| `structure.tagIndex` | No | Path to `TAG-INDEX.json`. Omit if no pages have tags. |
 
-Note: `title`, `description`, `version`, `author`, and `price` live in SKILL.md frontmatter — the single source of truth for agent-facing metadata. book.json intentionally does not duplicate them (except `id` which must match `name`).
+### Sync Rules
+
+Fields that appear in both `package.json` and SKILL.md frontmatter must stay in sync:
+
+| package.json | SKILL.md frontmatter |
+|---|---|
+| `name` | `name` |
+| `version` | `metadata.skillbook-version` |
+| `description` | `description` |
+| `author` | `author` |
+| `license` | `license` |
+| `skillbook.title` | `metadata.skillbook-title` |
+| `skillbook.author` | `metadata.skillbook-author` |
+| `skillbook.pages` | `metadata.skillbook-pages` |
+| `skillbook.price` | `metadata.skillbook-price` |
+| `skillbook.server` | `metadata.skillbook-server` |
+
+`skillbook validate` checks all sync rules. SKILL.md is the source of truth for agent-facing metadata; `package.json` is the source of truth for tooling.
+
+### Why package.json?
+
+- **`npm init`** to start a skillbook — zero new tooling to learn
+- **`npm install @skillbooks/cli`** — creator tools as a devDependency
+- **`npm run validate`** — standard scripts, works in CI
+- **`private: true`** — prevents accidental publish to npmjs.com
+- **Every developer already knows this file**
 
 ---
 
@@ -427,11 +486,11 @@ Revenue splits, payment processing, and billing terms are determined by the host
 
 ## Validation
 
-Before publishing, run `skillbook validate` to check:
+Before publishing, run `skillbook validate` (or `npm run validate`) to check:
 
 - **Structure** — SKILL.md exists, every section has `00-overview.md`, all TOC paths resolve
 - **Consistency** — `00-overview.md` file indexes match actual files in each folder
-- **Sync** — book.json `id` matches SKILL.md `name`; versions match
+- **Sync** — `package.json` fields match SKILL.md frontmatter (see Sync Rules)
 - **Tags** — TAG-INDEX.json entries match page frontmatter (if tags exist)
 - **Pages** — within 40-100 line target (warnings, not errors, for minor deviations)
 - **Security** — virus scan, prompt injection detection
@@ -448,7 +507,7 @@ Before publishing:
 
 - [ ] `SKILL.md` at the root with Agent Skills-compatible frontmatter (`name`, `description`, `author`, `license`, `compatibility`, `metadata` with `skillbook-*` fields)
 - [ ] `README.md` at the root — human-facing catalog content
-- [ ] `book.json` at the root with `id` matching SKILL.md `name`
+- [ ] `package.json` with `name` matching SKILL.md, `private: true`, and `skillbook` config
 - [ ] `## License` section in SKILL.md with clear usage terms
 - [ ] Every section folder has a `00-overview.md`
 - [ ] Every content page is listed in the SKILL.md TOC
@@ -459,7 +518,7 @@ Before publishing:
 - [ ] Cross-references use relative paths
 - [ ] Version follows semver
 - [ ] If pages have `tags` frontmatter, `TAG-INDEX.json` is present and consistent
-- [ ] `skillbook validate ./my-book` passes
+- [ ] `skillbook validate .` passes (or `npm run validate`)
 
 ---
 
@@ -471,7 +530,7 @@ Before publishing:
 - Added `skillbook-author` field — distinguishes content author from skill publisher
 - Added `skillbook-contact` field — creator contact info
 - Metadata prefix changed from `skillbooks-` to `skillbook-` (singular)
-- Slimmed `book.json` to tooling-only fields; agent-facing metadata lives in SKILL.md frontmatter
+- Replaced `book.json` with standard `package.json` — skillbook config under the `skillbook` key
 - Moved publishing workflow to [creator-tools](https://github.com/skillbooks-ai/creator-tools)
 - Clarified pricing as metered per-page billing
 
@@ -480,5 +539,4 @@ Before publishing:
 - Established SKILL.md as single source of truth (removed `SUMMARY.md`)
 - Introduced `00-overview.md` convention for section entry points
 - Defined `TAG-INDEX.json` for O(1) tag-based page lookup
-- Defined `book.json` for tooling metadata
 - Established semver policy for version-aware metering
