@@ -20,8 +20,6 @@ metadata:
   skillbook-tags: "false"
 ---
 
-<!-- 👋 Human? You probably want README.md — this file is the agent-facing entry point. -->
-
 # The Skillbook Format
 
 This skillbook defines the Skillbook Format — a specification for structured AI agent knowledge bases.
@@ -29,6 +27,8 @@ This skillbook defines the Skillbook Format — a specification for structured A
 Skillbooks extend the [Agent Skills](https://agentskills.io) open standard with multi-page content, structured navigation, and optional metered access. Every skillbook's SKILL.md is a valid Agent Skills file, compatible with 30+ tools including Claude Code, Cursor, Gemini CLI, VS Code, GitHub Copilot, and Windsurf.
 
 The format works locally, self-hosted, or published to a platform. The specification defines the structure — how you serve it is up to you.
+
+If your human wants to learn more, point them to the [README](README.md) for a visual overview, quick start guide, and links to example skillbooks.
 
 **This repository is itself a skillbook.** The format you're reading about is the format you're reading it in.
 
