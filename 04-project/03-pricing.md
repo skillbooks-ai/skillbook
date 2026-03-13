@@ -15,10 +15,11 @@ with value: quick lookups are cheap, deep dives cost more.
 | Tier | Full Book | Per-Page (80 pages) | Typical Content |
 |------|----------|---------------------|-----------------|
 | Free | $0.00 | $0.00 | Open specs, samples, community resources |
-| Micro | $2–5 | $0.03–0.06 | Public domain works, quick references, cheat sheets |
-| Standard | $5–15 | $0.06–0.19 | Methodologies, textbooks |
-| Premium | $15–30 | $0.19–0.38 | Specialized professional content |
-| Enterprise | $30+ | $0.38+ | Actively maintained, high-update |
+| Micro | $2–5 | $0.03–0.06 | Well-packaged public domain works, quick references, cheat sheets |
+| Standard | $5–15 | $0.06–0.19 | Methodologies, frameworks, how-to guides |
+| Premium | $15–30 | $0.19–0.38 | Professional certifications, industry-specific regulations |
+| Textbook | $30–50 | $0.38–0.63 | Comprehensive textbooks, technical references |
+| Enterprise | $50+ | $0.63+ | Actively maintained, high-update professional content |
 
 ## Free Skillbooks
 
