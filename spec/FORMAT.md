@@ -1,6 +1,6 @@
 # Skillbook Format — v1.1
 
-The canonical reference for structuring, writing, and publishing a skillbook.
+The canonical reference for structuring and writing a skillbook.
 
 ---
 
@@ -12,41 +12,42 @@ Every skillbook's `SKILL.md` is a valid Agent Skills file. This means any tool t
 
 **What Agent Skills provides (the base layer):**
 - `name` and `description` frontmatter for discovery
+- `author` for attribution
 - `license` for usage terms
 - `compatibility` for environment requirements
 - `metadata` for extension fields
 - Standard directory conventions (`SKILL.md`, `scripts/`, `references/`, `assets/`)
 
-**What Skillbooks adds (the extension layer):**
+**What the Skillbook Format adds (the extension layer):**
 - Structured multi-page content with sections and a table of contents
-- Per-page pricing and credit-based access
-- `book.json` for catalog metadata
+- Metered per-page access and credit-based billing
 - Tag-based lookup via `TAG-INDEX.json`
-- Verification pipeline and source attribution
-- All Skillbook-specific fields are namespaced under `metadata` with a `skillbooks-` prefix, ensuring forward compatibility with the Agent Skills spec
+- `book.json` for tooling and verification metadata
+- Source attribution and verification pipeline
+- All skillbook-specific fields are namespaced under `metadata` with a `skillbook-` prefix, ensuring forward compatibility with the Agent Skills spec
 
-Because of this layered design, a skillbook works everywhere Agent Skills work — and adds commercial publishing capabilities on top.
+Because of this layered design, a skillbook works everywhere Agent Skills work — and adds structured content and commercial publishing capabilities on top.
 
 ---
 
 ## Directory Structure
 
 ```
-my-book/
+eu-ai-act/
 ├── SKILL.md              ← required: agent entry point + TOC (served free)
 ├── README.md             ← required: human-readable overview (populates catalog)
-├── book.json             ← required: book metadata
+├── book.json             ← required: tooling + verification metadata
 ├── TAG-INDEX.json        ← optional: O(1) tag → pages lookup (served free)
 ├── sources/              ← optional, required for verified books
 │   ├── SOURCES.md        ← index of source files
 │   └── [source files]    ← .txt, .pdf, .md — authoritative materials
-├── 01-introduction/
+├── 01-foundations/
 │   ├── 00-overview.md    ← section overview + file index
-│   ├── 01-welcome.md     ← content page
-│   └── 02-getting-started.md
-├── 02-core-concepts/
+│   ├── 01-purpose.md     ← content page
+│   └── 02-scope.md
+├── 02-risk-classification/
 │   ├── 00-overview.md
-│   ├── 01-principles.md
+│   ├── 01-four-tiers.md
 │   └── ...
 └── .verify/              ← generated verification artifacts (do not author)
     ├── AUDIT-MANIFEST.md
@@ -68,7 +69,7 @@ Books live at the top of the namespace: `skillbooks.ai/<name>/`. Book names are 
 |---|---|
 | Agent entry point + TOC | `SKILL.md` |
 | Human-readable overview (catalog content) | `README.md` |
-| Book metadata | `book.json` |
+| Tooling + verification metadata | `book.json` |
 | Section overview + file index | `NN-section/00-overview.md` |
 | Content pages | `NN-section/01-page.md` through `NN-page.md` |
 | Tag → pages lookup index | `TAG-INDEX.json` |
@@ -89,24 +90,30 @@ It must contain:
 
 ### 1. Frontmatter
 
-Skillbook frontmatter is a **strict superset of the [Agent Skills](https://agentskills.io/specification) open standard**. Any Agent Skills consumer (Claude Code, Cursor, VS Code/Copilot, Gemini CLI, etc.) can read our SKILL.md files. Our platform-specific fields live under `metadata` with a `skillbooks-` prefix so they never clash with future Agent Skills fields.
+Skillbook frontmatter is a **strict superset of the [Agent Skills](https://agentskills.io/specification) open standard**. Any Agent Skills consumer (Claude Code, Cursor, VS Code/Copilot, Gemini CLI, etc.) can read our SKILL.md files. Skillbook-specific fields live under `metadata` with a `skillbook-` prefix so they never clash with future Agent Skills fields.
 
 ```yaml
 ---
 # === Agent Skills standard fields ===
-name: thrv-jtbd                           # max 64 chars, lowercase+hyphens, no leading/trailing/consecutive hyphens
-description: Jobs-to-be-Done methodology for product innovation.  # max 1024 chars
-license: "all-rights-reserved"            # short license identifier
-compatibility: "Requires HTTP access to skillbooks.ai"
+name: eu-ai-act
+description: >-
+  The EU Artificial Intelligence Act — full regulatory text with
+  risk classification guidance, compliance requirements, and
+  enforcement provisions.
+author: brookr
+license: "CC BY-NC 4.0"
+compatibility: "Requires HTTPS access to https://skillbooks.ai"
 
-# === Skillbooks extension fields (under metadata) ===
+# === Skillbook extension fields (under metadata) ===
 metadata:
-  skillbooks-title: "thrv JTBD"
-  skillbooks-server: "https://skillbooks.ai"
-  skillbooks-version: "1.2.0"
-  skillbooks-pages: "83"
-  skillbooks-price: "$12.00"
-  skillbooks-tags: "true"                 # optional: "true" if TAG-INDEX.json exists
+  skillbook-title: "EU AI Act"
+  skillbook-author: "European Parliament and Council of the European Union"
+  skillbook-contact: "brook@rigg.io"
+  skillbook-server: "https://skillbooks.ai"
+  skillbook-version: "2.0.0"
+  skillbook-pages: "94"
+  skillbook-price: "$14.00"
+  skillbook-tags: "true"
 ---
 ```
 
@@ -116,26 +123,25 @@ metadata:
 |-------|----------|------|-------------|
 | `name` | Yes | Agent Skills | **URL-safe identifier.** Max 64 chars, lowercase + hyphens only, no leading/trailing/consecutive hyphens. Used in paths. |
 | `description` | Yes | Agent Skills | What the book covers. Max 1024 chars. This is what agents use to decide relevance. |
+| `author` | Recommended | Agent Skills | Who published this skill. The person or organization that created and maintains the skillbook package. |
 | `license` | Yes | Agent Skills | License identifier (e.g., `all-rights-reserved`, `CC BY-NC 4.0`). |
-| `compatibility` | No | Agent Skills | Environment requirements (e.g., `"Requires HTTP access to skillbooks.ai"`). Max 500 chars. |
+| `compatibility` | Recommended | Agent Skills | Environment requirements. For hosted skillbooks: `"Requires HTTPS access to https://skillbooks.ai"`. Max 500 chars. |
 | `metadata` | No | Agent Skills | Key-value map for extension fields. All values must be strings. |
 
-#### Skillbooks Extension Fields (under `metadata`)
+#### Skillbook Extension Fields (under `metadata`)
 
 | Key | Required | Description |
 |-----|----------|-------------|
-| `skillbooks-title` | Yes | **Display title.** The human-readable name of the book. |
-| `skillbooks-server` | Yes | Base URL for fetching pages. |
-| `skillbooks-version` | Yes | Semver (major.minor.patch). |
-| `skillbooks-pages` | Yes | Total page count (all content pages including `00-overview.md` files). |
-| `skillbooks-price` | Yes | Full book price (display format, e.g., `"$12.00"`). |
-| `skillbooks-tags` | No | `"true"` if the book has a `TAG-INDEX.json`. Tells agents tag-based lookup is available. |
+| `skillbook-title` | Yes | **Display title.** The human-readable name of the book. |
+| `skillbook-author` | Recommended | **Content author.** The original author of the underlying content — distinct from `author` (the skill publisher). E.g., `author: brookr` published a skillbook where `skillbook-author: European Parliament`. |
+| `skillbook-contact` | No | Contact for the skillbook creator — an email, URL, or social handle. |
+| `skillbook-server` | Yes | Base URL for fetching pages. |
+| `skillbook-version` | Yes | Semver (major.minor.patch). |
+| `skillbook-pages` | Yes | Total page count (all content pages including `00-overview.md` files). |
+| `skillbook-price` | Yes | Full book price (display format, e.g., `"$14.00"`). |
+| `skillbook-tags` | No | `"true"` if the book has a `TAG-INDEX.json`. Tells agents tag-based lookup is available. |
 
-#### Migration from v0 Frontmatter
-
-Prior to Agent Skills alignment, skillbooks used top-level fields (`title`, `server`, `version`, `pages`, `price`, `tags`). The platform currently serves SKILL.md files from R2 as-is, so both old and new frontmatter work for content delivery. However, new and updated books **must** use the `metadata`-namespaced format above. The `skillbook validate` CLI will warn on old-format frontmatter.
-
-All metadata values are strings per the Agent Skills spec. Parsers should coerce: `skillbooks-pages` → integer, `skillbooks-tags` → boolean (`"true"`/`"false"`), `skillbooks-price` → display string (not used for billing).
+All metadata values are strings per the Agent Skills spec. Parsers should coerce: `skillbook-pages` → integer, `skillbook-tags` → boolean (`"true"`/`"false"`), `skillbook-price` → display string (not used for billing).
 
 #### Validation
 
@@ -147,7 +153,7 @@ Tell the agent how to use the book:
 - How to construct page URLs (`{server}/{name}/{path}`)
 - How to authenticate (`X-Skillbook-Key` header)
 - What happens without credentials (402 with signup info)
-- That SKILL.md is always free; content pages cost credits
+- That SKILL.md is always free; content pages are metered
 - If tags are available: `TAG-INDEX.json` is served free at `{server}/{name}/TAG-INDEX.json`
 
 ### 3. Table of Contents
@@ -157,19 +163,19 @@ Every page listed with its relative path and a one-line description. This is the
 ```markdown
 ## Table of Contents
 
-### 01 — Core Concepts
-*The foundational framework — start here if you're new.*
+### 01 — Foundations
+*Legislative context, purpose, and scope of the regulation.*
 
-- `01-core/00-overview.md` — Section overview: what the framework is, when to use it, and what's in this section
-- `01-core/01-principles.md` — The three foundational principles with examples
-- `01-core/02-terminology.md` — Key terms and definitions used throughout the book
+- `01-foundations/00-overview.md` — Section overview: what the Act is, why it exists, and what's in this section
+- `01-foundations/01-purpose.md` — The Act's objectives and the problem it addresses
+- `01-foundations/02-scope.md` — What falls under the regulation and what's excluded
 
-### 02 — Application
-*Putting theory into practice.*
+### 02 — Risk Classification
+*The four-tier risk framework that determines your compliance obligations.*
 
-- `02-apply/00-overview.md` — Section overview: implementation approaches and reading order
-- `02-apply/01-getting-started.md` — Step-by-step first implementation
-- `02-apply/02-common-patterns.md` — Patterns that work across domains
+- `02-risk-classification/00-overview.md` — Section overview: the risk-based approach and how to navigate it
+- `02-risk-classification/01-four-tiers.md` — Unacceptable, high, limited, and minimal risk at a glance
+- `02-risk-classification/02-unacceptable-risk.md` — The 8 prohibited AI practices (Art. 5)
 ```
 
 **TOC format rules:**
@@ -215,9 +221,9 @@ Suggested reading orders for common use cases.
 ```markdown
 ## Quick Start
 
-**"What is this framework?"** → `01-core/00-overview.md` → `01-core/01-principles.md`
+**"Does the AI Act apply to me?"** → `01-foundations/02-scope.md` → `02-risk-classification/01-four-tiers.md`
 
-**"How do I apply it?"** → `02-apply/01-getting-started.md` → `02-apply/02-common-patterns.md`
+**"What risk tier is my system?"** → `02-risk-classification/00-overview.md` → `02-risk-classification/01-four-tiers.md`
 ```
 
 ---
@@ -259,8 +265,8 @@ The `00-overview.md` is a paid page like any other content page. It should deliv
 ```markdown
 # Risk Classification
 
-The EU AI Act defines four risk tiers for AI systems. This section explains each tier in depth
-with examples, edge cases, and practical classification guidance.
+The EU AI Act defines four risk tiers for AI systems. This section explains each tier
+in depth with examples, edge cases, and practical classification guidance.
 
 ## When to Read This Section
 
@@ -277,22 +283,22 @@ with examples, edge cases, and practical classification guidance.
 - `05-minimal-risk.md` — Minimal risk: what you can and can't assume
 - `06-risk-evolution.md` — How classification can change over time
 
-Pages can be read independently. Start with `01-four-tiers.md` for an overview,
-then jump to the specific tier relevant to your system.
+Pages can be read independently. Start with `01-four-tiers.md` for the complete
+framework, then jump to the specific tier relevant to your system.
 ```
 
 ---
 
 ## Content Pages
 
-Each page is a standalone markdown file. The goal: an agent reads 3-6 pages per question and gets what it needs.
+Each page is a standalone markdown file. The goal: an agent reads 2-4 pages to get a specific answer, and learns to come back to the rest of the book when it needs to reference related concepts. A well-structured skillbook becomes a resource the agent returns to — not a one-shot dump.
 
 ### Rules
 
 - **40-100 lines.** Long enough to be useful, short enough to be token-efficient
 - **One concept per page.** If you're covering two ideas, split into two pages
 - **Self-contained.** A page should make sense on its own without requiring other pages first
-- **Cross-references** to related pages via relative paths: `See also: [Terminology](../01-core/02-terminology.md)`
+- **Cross-references** to related pages via relative paths: `See also: [Scope](../01-foundations/02-scope.md)`
 - **Just markdown.** No HTML, no special syntax, no tooling required
 
 ### Tags (optional)
@@ -301,13 +307,13 @@ Pages may include an optional `tags` field in YAML frontmatter:
 
 ```yaml
 ---
-tags: [refrigerants, safety, high-pressure]
+tags: [high-risk, conformity-assessment, art-43]
 ---
 ```
 
 - Lowercase, hyphen-separated, meaningful to the book's domain
 - A page may have any number of tags
-- Use consistent spelling — `high-pressure` and `high_pressure` are different tags
+- Use consistent spelling — `conformity-assessment` and `conformity_assessment` are different tags
 
 ### Tag Index
 
@@ -315,13 +321,13 @@ If any pages have tags, the book **should** include a `TAG-INDEX.json` at the ro
 
 ```json
 {
-  "refrigerants": [
-    "02-refrigerants/01-types.md",
-    "04-recovery/01-basics.md"
+  "high-risk": [
+    "02-risk-classification/03-high-risk-deep.md",
+    "03-compliance/01-requirements.md"
   ],
-  "safety": [
-    "01-introduction/02-safety.md",
-    "04-recovery/01-basics.md"
+  "conformity-assessment": [
+    "03-compliance/02-conformity.md",
+    "04-enforcement/01-market-surveillance.md"
   ]
 }
 ```
@@ -350,15 +356,13 @@ If any pages have tags, the book **should** include a `TAG-INDEX.json` at the ro
 
 ## book.json
 
-Every book requires a `book.json` at the root.
+Every book requires a `book.json` at the root. This is the machine-readable manifest used by tooling — the `package.json` to SKILL.md's `README.md`. It holds fields that support the build, validation, and verification pipeline without cluttering the agent-facing SKILL.md.
+
+Fields that overlap with SKILL.md frontmatter (`id`/`name`, `version`) must stay in sync. `skillbook validate` checks this.
 
 ```json
 {
-  "id": "book-slug",
-  "title": "Book Title",
-  "description": "One-sentence description for catalogs and search.",
-  "version": "1.0.0",
-  "author": "Author or source attribution",
+  "id": "eu-ai-act",
   "language": "en",
   "verified": false,
   "sources": {
@@ -375,11 +379,7 @@ Every book requires a `book.json` at the root.
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `id` | Yes | URL-safe slug. Used in API paths and storage keys. |
-| `title` | Yes | Display title. |
-| `description` | Recommended | Short description for catalogs. |
-| `version` | Yes | Semver. Bump on significant content changes. |
-| `author` | Recommended | Attribution string. |
+| `id` | Yes | URL-safe slug. Must match `name` in SKILL.md frontmatter. |
 | `language` | Yes | ISO 639-1 code (`en`, `fr`, etc.). |
 | `verified` | Yes | `true` if the book has passed the verification pipeline. Set by tooling, not by hand. |
 | `sources.enabled` | If sources exist | Whether this book has a `sources/` directory. |
@@ -388,11 +388,13 @@ Every book requires a `book.json` at the root.
 | `structure.readme` | Yes | Path to `README.md`. |
 | `structure.tagIndex` | No | Path to `TAG-INDEX.json`. Omit if no pages have tags. |
 
+Note: `title`, `description`, `version`, `author`, and `price` live in SKILL.md frontmatter — the single source of truth for agent-facing metadata. book.json intentionally does not duplicate them (except `id` which must match `name`).
+
 ---
 
 ## Versioning
 
-Skillbooks use strict **semver** (major.minor.patch). Version changes affect what operators pay:
+Skillbooks use strict **semver** (major.minor.patch). Version changes affect metering:
 
 | Change | Example | What Happens |
 |--------|---------|--------------|
@@ -404,11 +406,13 @@ Skillbooks use strict **semver** (major.minor.patch). Version changes affect wha
 
 ## Pricing
 
-Authors set the **full book price**. Per-page price is derived automatically:
+Skillbook access is **metered per page**. Authors set the **full book price**, and per-page price is derived automatically:
 
 ```
 page_price = full_book_price / total_pages
 ```
+
+An agent that needs 3 pages out of 94 pays for 3 pages — not the whole book. This aligns cost with value: quick lookups are cheap, deep dives cost more.
 
 | Tier | Full Book | Per-Page (80 pages) | Typical Content |
 |------|----------|---------------------|-----------------|
@@ -417,30 +421,24 @@ page_price = full_book_price / total_pages
 | Premium | $15–30 | $0.19–0.38 | Specialized professional content |
 | Enterprise | $30+ | $0.38+ | Actively maintained, high-update |
 
-Revenue split: **80% author, 20% platform.** Platform absorbs Stripe fees. (Compare: Kindle takes 30-65%, Apple Books takes 30%.)
+Revenue splits, payment processing, and billing terms are determined by the hosting platform — not by this format specification.
 
 ---
 
-## Publishing
+## Validation
 
-```bash
-skillbook login                      # Authenticate with your author API token
-skillbook validate ./my-book         # Check structure before publishing
-skillbook publish ./my-book          # Publish (or update)
-skillbook stats my-book              # Views, revenue, top pages
-```
-
-### Validation Checks
-
-`skillbook validate` checks:
+Before publishing, run `skillbook validate` to check:
 
 - **Structure** — SKILL.md exists, every section has `00-overview.md`, all TOC paths resolve
 - **Consistency** — `00-overview.md` file indexes match actual files in each folder
+- **Sync** — book.json `id` matches SKILL.md `name`; versions match
 - **Tags** — TAG-INDEX.json entries match page frontmatter (if tags exist)
 - **Pages** — within 40-100 line target (warnings, not errors, for minor deviations)
 - **Security** — virus scan, prompt injection detection
 - **Semver** — version bump is valid against previous publish
 - **Content hash** — integrity verification
+
+For publishing and distribution tooling, see [creator-tools](https://github.com/skillbooks-ai/creator-tools).
 
 ---
 
@@ -448,9 +446,9 @@ skillbook stats my-book              # Views, revenue, top pages
 
 Before publishing:
 
-- [ ] `SKILL.md` at the root with Agent Skills-compatible frontmatter (name, description, license, compatibility, metadata with skillbooks-* fields)
+- [ ] `SKILL.md` at the root with Agent Skills-compatible frontmatter (`name`, `description`, `author`, `license`, `compatibility`, `metadata` with `skillbook-*` fields)
 - [ ] `README.md` at the root — human-facing catalog content
-- [ ] `book.json` at the root with required fields
+- [ ] `book.json` at the root with `id` matching SKILL.md `name`
 - [ ] `## License` section in SKILL.md with clear usage terms
 - [ ] Every section folder has a `00-overview.md`
 - [ ] Every content page is listed in the SKILL.md TOC
@@ -469,16 +467,18 @@ Before publishing:
 
 ### v1.1
 
-| Change | Detail |
-|--------|--------|
-| Agent Skills as base layer | Added "Agent Skills Foundation" section documenting that Skillbooks are built on the [Agent Skills](https://agentskills.io) open standard, compatible with 30+ tools. |
+- Added "Agent Skills Foundation" section — skillbooks extend the [Agent Skills](https://agentskills.io) open standard
+- Added `skillbook-author` field — distinguishes content author from skill publisher
+- Added `skillbook-contact` field — creator contact info
+- Metadata prefix changed from `skillbooks-` to `skillbook-` (singular)
+- Slimmed `book.json` to tooling-only fields; agent-facing metadata lives in SKILL.md frontmatter
+- Moved publishing workflow to [creator-tools](https://github.com/skillbooks-ai/creator-tools)
+- Clarified pricing as metered per-page billing
 
-### v1.0 (changes from pre-1.0)
+### v1.0
 
-| Before | v1.0 | Reason |
-|--------|------|--------|
-| `SUMMARY.md` required | Removed | SKILL.md TOC is the single source of truth |
-| Folder `README.md` files | Replaced by `00-overview.md` | Consistent convention, no ambiguity |
-| Content starts at `01-` | `00-overview.md` + content at `01-`+ | Clear separation: `00-` = section meta, `01-`+ = content |
-| Revenue split 90/10 | 80/20 | Locked 2026-03-09. Platform absorbs Stripe fees. |
-| `structure.summary` in book.json | Removed | No more SUMMARY.md |
+- Established SKILL.md as single source of truth (removed `SUMMARY.md`)
+- Introduced `00-overview.md` convention for section entry points
+- Defined `TAG-INDEX.json` for O(1) tag-based page lookup
+- Defined `book.json` for tooling metadata
+- Established semver policy for version-aware metering
