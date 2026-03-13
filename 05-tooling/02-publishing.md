@@ -47,8 +47,14 @@ on how version bumps affect metering.
 ## Self-Hosting
 
 Publishing to a platform is optional. You can serve a skillbook from any static file host,
-your own server, or use it locally. The format works the same — the CLI and platform
-are conveniences, not requirements.
+your own server, or use it locally. The format works the same everywhere.
+
+Publishing to [skillbooks.ai](https://skillbooks.ai) adds:
+- **Metered billing** — per-page access control and credit-based pricing
+- **Analytics** — page views, top pages, reader behavior
+- **Discovery** — catalog listing, search, marketplace visibility
+- **API keys** — managed authentication for your readers
+- **CDN delivery** — global edge caching for fast page loads
 
 ---
 
