@@ -31,16 +31,18 @@ The CLI checks:
 
 ## Updates
 
-To publish an update, bump the version in both `package.json` and SKILL.md metadata
-(see [Sync Rules](../04-project/01-package-json.md)), then run `skillbook publish .` again.
+Bump the version, then publish:
 
-How you bump the version determines how the update affects existing readers:
+```bash
+skillbook version patch              # 1.0.0 → 1.0.1 (fixes, no new charges)
+skillbook version minor              # 1.0.0 → 1.1.0 (new pages metered, existing access preserved)
+skillbook version major              # 1.0.0 → 2.0.0 (full re-meter, significant rewrite)
+skillbook publish .
+```
 
-- **Patch** (1.0.0 → 1.0.1) — fixes, no new charges
-- **Minor** (1.0.0 → 1.1.0) — new pages metered, existing access preserved
-- **Major** (1.0.0 → 2.0.0) — full re-meter, signals significant rewrite
-
-See [Versioning](../04-project/02-versioning.md) for the full policy.
+`skillbook version` updates both `package.json` and SKILL.md metadata in one shot —
+no manual sync needed. See [Versioning](../04-project/02-versioning.md) for the full policy
+on how version bumps affect metering.
 
 ## Self-Hosting
 
