@@ -17,18 +17,19 @@ Consistent naming makes skillbooks predictable for both agents and authors.
 
 ## Namespace
 
-Books live at the top of the namespace: `skillbooks.ai/<name>/`.
+Books live at the top of the server namespace: `{server}/{name}/`.
 
-- Book names are **first-come, first-served** (like npm packages)
-- No author prefix — it's `skillbooks.ai/eu-ai-act`, not `skillbooks.ai/brookr/eu-ai-act`
+- The `server` value is set in SKILL.md metadata (e.g., `https://skillbooks.ai`)
+- Book names are **first-come, first-served** within a given server (like npm packages)
+- No author prefix — it's `{server}/eu-ai-act`, not `{server}/brookr/eu-ai-act`
 - Names must be URL-safe: lowercase, hyphens only, max 64 characters
 - No leading, trailing, or consecutive hyphens
 
 ## Numeric Shorthand
 
-Pages can be addressed by their numeric path: `skillbooks.ai/eu-ai-act/02/01` resolves
+Pages can be addressed by their numeric path: `{server}/eu-ai-act/02/01` resolves
 to the first content page in the second section (`02-risk-classification/01-four-tiers.md`).
-This is a platform convenience — authors don't need to do anything special to enable it.
+Numeric shorthand is a server convenience — authors don't need to do anything special to enable it.
 
 ---
 
