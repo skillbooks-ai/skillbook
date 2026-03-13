@@ -7,6 +7,7 @@ skillbook against the format specification.
 
 - **Structure** — SKILL.md exists, every section has `00-overview.md`, all TOC paths resolve
 - **Consistency** — `00-overview.md` file indexes match actual files in each folder
+- **Cross-references** — all relative markdown links resolve to actual files (no broken links)
 - **Sync** — `package.json` fields match SKILL.md frontmatter (see [Sync Rules](../04-project/01-package-json.md))
 - **Tags** — TAG-INDEX.json entries match page frontmatter (if tags exist)
 - **Pages** — within 40-100 line target (warnings, not errors, for minor deviations)
