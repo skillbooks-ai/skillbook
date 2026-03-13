@@ -1,7 +1,7 @@
 # Versioning
 
-Skillbooks use strict **semver** (major.minor.patch). Version bumps aren't just labels —
-they determine what gets metered.
+Skillbooks use strict **semver** (major.minor.patch). For hosted skillbooks with metered access,
+version bumps determine what gets billed. For all skillbooks, they signal the scope of change.
 
 ## How Version Changes Affect Metering
 

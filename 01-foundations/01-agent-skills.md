@@ -26,7 +26,7 @@ can discover, read, and use a skillbook's entry point out of the box — no spec
 - All skillbook-specific SKILL.md fields namespaced under `metadata` with a `skillbook-` prefix
 
 Because of this layered design, a skillbook works everywhere Agent Skills work — and adds
-structured content and commercial publishing capabilities on top.
+structured content and optional commercial publishing capabilities on top.
 
 ## Why This Matters
 

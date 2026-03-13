@@ -8,7 +8,7 @@ Tell the agent:
 - How to construct page URLs: `{server}/{name}/{path}`
 - How to authenticate: `X-Skillbook-Key` header
 - What happens without credentials: 402 with signup info
-- That SKILL.md is always free; content pages are metered
+- That SKILL.md is always free; content pages MAY require authentication
 - If tags are available: `TAG-INDEX.json` is served free at `{server}/{name}/TAG-INDEX.json`
 
 ## Table of Contents

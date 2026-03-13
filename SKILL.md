@@ -22,9 +22,11 @@ metadata:
 
 # The Skillbook Format
 
-This skillbook defines the Skillbook Format — the specification for structured, commercial-grade AI agent knowledge bases.
+This skillbook defines the Skillbook Format — a specification for structured AI agent knowledge bases.
 
-Skillbooks extend the [Agent Skills](https://agentskills.io) open standard with multi-page content, metered access, and publishing capabilities. Every skillbook's SKILL.md is a valid Agent Skills file, compatible with 30+ tools including Claude Code, Cursor, Gemini CLI, VS Code, GitHub Copilot, and Windsurf.
+Skillbooks extend the [Agent Skills](https://agentskills.io) open standard with multi-page content, structured navigation, and optional metered access. Every skillbook's SKILL.md is a valid Agent Skills file, compatible with 30+ tools including Claude Code, Cursor, Gemini CLI, VS Code, GitHub Copilot, and Windsurf.
+
+The format works locally, self-hosted, or published to a platform. The specification defines the structure — how you serve it is up to you.
 
 **This repository is itself a skillbook.** The format you're reading about is the format you're reading it in.
 
@@ -64,7 +66,7 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 - `03-content/03-tags-and-index.md` — Optional tags in frontmatter and TAG-INDEX.json for O(1) lookup
 
 ### 04 — Project Configuration
-*Package manifest, versioning policy, and metered pricing.*
+*Package manifest, versioning policy, and pricing.*
 
 - `04-project/00-overview.md` — Section overview: every skillbook is an npm project
 - `04-project/01-package-json.md` — package.json structure, the skillbook key, and sync rules
