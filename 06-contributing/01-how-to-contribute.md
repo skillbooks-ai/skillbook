@@ -29,7 +29,7 @@ Include the section affected, what's wrong or missing, and a suggested fix if yo
 
 For concrete spec changes, submit a PR:
 
-1. Reference the related Issue or Discussion
+1. MUST reference the related Issue or Discussion
 2. Include a diff of the specification changes
 3. Explain the rationale — why this change improves the format
 4. Follow the existing style: clear, direct language

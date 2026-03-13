@@ -1,6 +1,6 @@
 # Contributing
 
-See [07-contributing/01-how-to-contribute.md](07-contributing/01-how-to-contribute.md) for the full guide.
+See [06-contributing/01-how-to-contribute.md](06-contributing/01-how-to-contribute.md) for the full guide.
 
 **Quick version:**
 

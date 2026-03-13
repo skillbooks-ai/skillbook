@@ -85,13 +85,16 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 ### 06 — Examples
 *Real skillbooks that implement this specification.*
 
-- `06-examples/00-overview.md` — Links to example skillbook repositories
-
-### 07 — Contributing
+### 06 — Contributing
 *How to suggest changes, report issues, and improve the spec.*
 
-- `07-contributing/00-overview.md` — Section overview: the contribution process
-- `07-contributing/01-how-to-contribute.md` — Discussions, issues, PRs, and the style guide
+- `06-contributing/00-overview.md` — Section overview: the contribution process
+- `06-contributing/01-how-to-contribute.md` — Discussions, issues, PRs, and the style guide
+
+### 07 — Examples
+*Real skillbooks that implement this specification.*
+
+- `07-examples/00-overview.md` — Links to example skillbook repositories
 
 ## Quick Start
 
