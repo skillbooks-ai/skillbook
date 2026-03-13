@@ -15,7 +15,7 @@ metadata:
   skillbook-contact: "https://github.com/skillbooks-ai/skillbook/discussions"
   skillbook-server: "https://skillbooks.ai"
   skillbook-version: "1.1.0"
-  skillbook-pages: "21"
+  skillbook-pages: "23"
   skillbook-price: "$0.00"
   skillbook-tags: "false"
 ---
@@ -86,6 +86,12 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 *Real skillbooks that implement this specification.*
 
 - `06-examples/00-overview.md` — Links to example skillbook repositories
+
+### 07 — Contributing
+*How to suggest changes, report issues, and improve the spec.*
+
+- `07-contributing/00-overview.md` — Section overview: the contribution process
+- `07-contributing/01-how-to-contribute.md` — Discussions, issues, PRs, and the style guide
 
 ## Quick Start
 
