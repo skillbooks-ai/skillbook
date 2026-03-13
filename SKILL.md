@@ -20,6 +20,8 @@ metadata:
   skillbook-tags: "false"
 ---
 
+<!-- 👋 Human? You probably want README.md — this file is the agent-facing entry point. -->
+
 # The Skillbook Format
 
 This skillbook defines the Skillbook Format — a specification for structured AI agent knowledge bases.
