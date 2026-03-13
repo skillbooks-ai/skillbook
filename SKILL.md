@@ -15,7 +15,7 @@ metadata:
   skillbook-contact: "https://github.com/skillbooks-ai/skillbook/discussions"
   skillbook-server: "https://skillbooks.ai"
   skillbook-version: "1.1.0"
-  skillbook-pages: "20"
+  skillbook-pages: "21"
   skillbook-price: "$0.00"
   skillbook-tags: "false"
 ---
@@ -78,6 +78,7 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 
 - `05-tooling/00-overview.md` — Section overview: the creator workflow
 - `05-tooling/01-validation.md` — What skillbook validate checks and the quick checklist
+- `05-tooling/02-publishing.md` — Publishing workflow, updates, versioning, and self-hosting
 
 ### 06 — Examples
 *Real skillbooks that implement this specification.*

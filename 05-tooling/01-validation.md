@@ -11,9 +11,8 @@ skillbook against the format specification.
 - **Sync** — `package.json` fields match SKILL.md frontmatter (see [Sync Rules](../04-project/01-package-json.md))
 - **Tags** — TAG-INDEX.json entries match page frontmatter (if tags exist)
 - **Pages** — within 40-100 line target (warnings, not errors, for minor deviations)
-- **Security** — virus scan, prompt injection detection
+- **Security** — prompt injection detection
 - **Semver** — version bump is valid against previous publish
-- **Content hash** — integrity verification
 
 ## Quick Checklist
 
@@ -36,7 +35,7 @@ Before publishing:
 
 ## CI Integration
 
-Add validation to your CI pipeline:
+Add validation to your CI pipeline or pre-commit hook:
 
 ```yaml
 # .github/workflows/validate.yml
@@ -48,4 +47,4 @@ This catches structural issues before they reach readers.
 
 ---
 
-[↑ Section](00-overview.md) | [🏠 Home](../SKILL.md)
+[↑ Section](00-overview.md) | [Next: Publishing →](02-publishing.md) | [🏠 Home](../SKILL.md)

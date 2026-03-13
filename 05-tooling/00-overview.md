@@ -11,9 +11,7 @@ This section covers the validation pipeline and pre-publish checklist for skillb
 ## Pages in This Section
 
 - `01-validation.md` — What `skillbook validate` checks and the quick checklist
-
-For the full creator workflow (login, publish, stats), see
-[@skillbooks/cli](https://github.com/skillbooks-ai/creator-tools).
+- `02-publishing.md` — Publishing workflow, updates, versioning, and self-hosting
 
 ---
 
