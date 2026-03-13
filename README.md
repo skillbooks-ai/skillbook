@@ -51,7 +51,7 @@ This specification is open. [Read the full spec](SKILL.md), open an [issue](http
 | EU AI Act | Regulatory text + compliance guidance | [skillbook-eu-ai-act](https://github.com/skillbooks-ai/skillbook-eu-ai-act) |
 | EPA 608 | Certification exam prep | [skillbook-epa-608](https://github.com/skillbooks-ai/skillbook-epa-608) |
 | Shakespeare | Complete works (725 scenes) | [skillbook-shakespeare-complete](https://github.com/skillbooks-ai/skillbook-shakespeare-complete) |
-| thrv JTBD | Product innovation methodology | [skillbook-thrv-jtbd](https://github.com/skillbooks-ai/skillbook-thrv-jtbd) |
+
 
 ## License
 

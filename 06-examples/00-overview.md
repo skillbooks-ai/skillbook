@@ -20,11 +20,6 @@ All 37 plays broken into act/scene structure with scholarly annotations.
 - **Repo:** [skillbooks-ai/skillbook-shakespeare-complete](https://github.com/skillbooks-ai/skillbook-shakespeare-complete)
 - **Demonstrates:** Large-scale literary content (725 scenes), deep section nesting
 
-### thrv JTBD
-Jobs-to-be-Done methodology for product innovation.
-- **Repo:** [skillbooks-ai/skillbook-thrv-jtbd](https://github.com/skillbooks-ai/skillbook-thrv-jtbd)
-- **Demonstrates:** Business methodology, cross-references, quick start paths
-
 ## This Repository
 
 This specification repository is itself a skillbook. Browse its structure to see the format
