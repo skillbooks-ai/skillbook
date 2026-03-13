@@ -10,7 +10,9 @@ page_price = full_book_price / total_pages
 An agent that needs 3 pages out of 94 pays for 3 pages — not the whole book. This aligns cost
 with value: quick lookups are cheap, deep dives cost more.
 
-## Pricing Tiers
+## Suggested Pricing Tiers
+
+These tiers are guidelines, not requirements. Authors set their own price.
 
 | Tier | Full Book | Per-Page (80 pages) | Typical Content |
 |------|----------|---------------------|-----------------|
