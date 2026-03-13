@@ -1,6 +1,6 @@
 # skillbook
 
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE-APACHE)
+[![License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg)](LICENSE)
 [![Spec Version](https://img.shields.io/badge/spec-v1.1-green.svg)](SKILL.md)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-orange.svg)](https://agentskills.io)
 
@@ -52,4 +52,4 @@ Or jump directly to:
 
 ## License
 
-Specification and code: [Apache 2.0](LICENSE-APACHE). Documentation: [CC-BY-4.0](LICENSE-CC-BY).
+Licensed under [CC-BY-4.0](LICENSE).

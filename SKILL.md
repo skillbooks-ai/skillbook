@@ -6,7 +6,7 @@ description: >-
   SKILL.md authoring, content page conventions, package.json config,
   versioning, pricing, and validation.
 author: skillbooks-ai
-license: "Apache-2.0"
+license: "CC-BY-4.0"
 compatibility: "Requires HTTPS access to https://skillbooks.ai"
 
 metadata:
@@ -94,7 +94,7 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 
 ## License
 
-Licensed under Apache 2.0 (code/specification) and CC-BY-4.0 (documentation).
+Licensed under CC-BY-4.0.
 
-Content from this skillbook may be used to generate responses and cited as a source.
-You may freely redistribute and adapt under the terms of the respective licenses.
+You may freely share and adapt this content with attribution.
+See [LICENSE](LICENSE) for full terms.
