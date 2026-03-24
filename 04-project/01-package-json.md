@@ -26,6 +26,7 @@ the same pattern as `eslintConfig`, `jest`, or `prettier`.
     "tag-index": "skillbook tag-index ."
   },
   "skillbook": {
+    "type": "reference",
     "title": "EU AI Act",
     "author": "European Parliament and Council of the European Union",
     "contact": "https://x.com/skillbooks",
@@ -47,6 +48,7 @@ the same pattern as `eslintConfig`, `jest`, or `prettier`.
 
 | Field | Required | Description |
 |-------|----------|-------------|
+| `type` | Yes | Either `"reference"` or `"guide"`. See [Types](../01-foundations/04-types.md). |
 | `title` | Yes | Display title — the human-readable name of the book. |
 | `author` | Recommended | Content author — distinct from top-level `author` (the publisher). |
 | `contact` | No | Creator contact — email, URL, or social handle. |
@@ -70,6 +72,7 @@ Fields in both `package.json` and SKILL.md frontmatter must stay in sync:
 | `description` | `description` |
 | `author` | `author` |
 | `license` | `license` |
+| `skillbook.type` | `metadata.skillbook-type` |
 | `skillbook.title` | `metadata.skillbook-title` |
 | `skillbook.author` | `metadata.skillbook-author` |
 | `skillbook.pages` | `metadata.skillbook-pages` |

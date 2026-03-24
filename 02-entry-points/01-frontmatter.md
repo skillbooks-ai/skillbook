@@ -19,6 +19,7 @@ license: "CC BY-NC 4.0"
 compatibility: "Requires HTTPS access to https://skillbooks.ai"
 
 metadata:
+  skillbook-type: "reference"
   skillbook-title: "EU AI Act"
   skillbook-author: "European Parliament and Council of the European Union"
   skillbook-contact: "https://x.com/skillbooks"
@@ -27,6 +28,7 @@ metadata:
   skillbook-pages: "94"
   skillbook-price: "$14.00"
   skillbook-tags: "true"
+  skillbook-keywords: "ai-regulation, eu-law, compliance, risk-classification"
 ---
 ```
 
@@ -45,6 +47,8 @@ metadata:
 
 | Key | Required | Description |
 |-----|----------|-------------|
+| `skillbook-type` | Yes | Either `"reference"` or `"guide"`. See [Types](../01-foundations/04-types.md). |
+| `skillbook-keywords` | Recommended | Comma-separated free-form keywords for discovery (like npm `keywords`). |
 | `skillbook-title` | Yes | Display title — the human-readable name of the book. |
 | `skillbook-author` | Recommended | Content author — distinct from `author` (the publisher). E.g., `author: brookr` published a skillbook where `skillbook-author: European Parliament`. |
 | `skillbook-contact` | No | Creator contact — an email, URL, or social handle. |

@@ -10,14 +10,16 @@ license: "CC-BY-4.0"
 compatibility: "Requires HTTPS access to https://skillbooks.ai"
 
 metadata:
+  skillbook-type: "guide"
   skillbook-title: "The Skillbook Format"
   skillbook-author: "Skillbooks"
   skillbook-contact: "https://github.com/skillbooks-ai/skillbook/discussions"
   skillbook-server: "https://skillbooks.ai"
-  skillbook-version: "1.1.1"
-  skillbook-pages: "23"
+  skillbook-version: "1.2.0"
+  skillbook-pages: "24"
   skillbook-price: "$0.00"
   skillbook-tags: "false"
+  skillbook-keywords: "skillbook, specification, format, agent-skills, authoring"
 ---
 
 # The Skillbook Format
@@ -49,6 +51,7 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 - `01-foundations/01-agent-skills.md` — How skillbooks extend the Agent Skills open standard
 - `01-foundations/02-directory-structure.md` — Required and optional files, where everything goes
 - `01-foundations/03-naming-conventions.md` — Folder, file, and namespace naming rules
+- `01-foundations/04-types.md` — The two skillbook types (`reference` and `guide`), composition model, and keywords
 
 ### 02 — Entry Points
 *The two files every reader sees first: SKILL.md for agents, README.md for humans.*
