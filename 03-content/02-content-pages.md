@@ -6,6 +6,7 @@ concepts. A well-structured skillbook becomes a resource the agent returns to â€
 
 ## Rules
 
+- **Same page structure for both types.** `reference` pages prioritize precise citations and completeness; `guide` pages prioritize clear steps and decision rules.
 - **40-100 lines.** Long enough to be useful, short enough to be token-efficient
 - **One concept per page.** If you're covering two ideas, split into two pages
 - **Self-contained.** A page should make sense on its own without requiring other pages first

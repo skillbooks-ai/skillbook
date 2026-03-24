@@ -10,7 +10,7 @@ license: "CC-BY-4.0"
 compatibility: "Requires HTTPS access to https://skillbooks.ai"
 
 metadata:
-  skillbook-type: "guide"
+  skillbook-type: "reference"
   skillbook-title: "The Skillbook Format"
   skillbook-author: "Skillbooks"
   skillbook-contact: "https://github.com/skillbooks-ai/skillbook/discussions"

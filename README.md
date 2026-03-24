@@ -7,6 +7,7 @@
 > The Skillbook Format — a specification for granting AI agents vast knowledge and action skills
 
 Skillbooks extend the [Agent Skills](https://agentskills.io) open standard with multi-page content, structured navigation, and optional metered access. Every skillbook's `SKILL.md` is a valid Agent Skills file — compatible with 30+ skill-wielding agentic tools including Claude Code, Cursor, Gemini CLI, VS Code, GitHub Copilot, and Windsurf.
+Every skillbook has one type: `reference` (authoritative source material agents look up and cite) or `guide` (instructional process/rules agents follow). The type system is intentionally minimal: discovery is handled by free-form keywords, while capability comes from composing references with guides.
 
 **This repository is itself a skillbook.** The format you're reading about is the format it's written in.
 

@@ -19,6 +19,7 @@ can discover, read, and use a skillbook's entry point out of the box — no spec
 ## What the Skillbook Format Adds (the extension layer)
 
 - Structured multi-page content with sections and a table of contents
+- A minimal type system: each skillbook is either `reference` or `guide`
 - Metered per-page access and credit-based billing
 - Tag-based lookup via `TAG-INDEX.json`
 - Skillbook-specific config in `package.json` under the `skillbook` key

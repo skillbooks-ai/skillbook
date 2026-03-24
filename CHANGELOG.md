@@ -5,6 +5,21 @@ All notable changes to the Skillbook Format specification are documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-03-24
+
+### Added
+
+- Foundations page for the two-type system: `reference` and `guide`
+- Guidance on composition: pairing references with guides for combinatorial capability
+- `skillbook-type` / `skillbook.type` requirements in frontmatter and package metadata examples
+
+### Changed
+
+- Marked this specification skillbook as `reference` (it is authoritative source material)
+- README updated with a short two-type overview and spec badge to `v1.2`
+- Added lightweight type mentions in Agent Skills extension, directory structure, content page guidance, and examples
+- Clarified that `keywords` are free-form discovery tags, separate from the controlled `type` field
+
 ## [1.1.1] - 2026-03-23
 
 ### Added

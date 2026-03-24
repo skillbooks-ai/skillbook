@@ -7,7 +7,7 @@
   "keywords": ["skillbook", "agent-skills", "specification", "ai-agents", "knowledge-base"],
   "private": true,
   "skillbook": {
-    "type": "guide",
+    "type": "reference",
     "title": "The Skillbook Format",
     "author": "Skillbooks",
     "contact": "https://github.com/skillbooks-ai/skillbook/discussions",

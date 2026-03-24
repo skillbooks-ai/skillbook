@@ -25,6 +25,7 @@ All 37 plays broken into act/scene structure with scholarly annotations.
 This specification repository is itself a skillbook. Browse its structure to see the format
 in action — the `SKILL.md`, section `00-overview.md` files, content pages, `package.json`
 config, and navigation links all follow the conventions described in the spec.
+Its `type` is `reference`: this is the authoritative definition agents look up and cite.
 
 ---
 

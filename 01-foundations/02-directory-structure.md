@@ -33,6 +33,7 @@ eu-ai-act/
 | Content type | Goes in |
 |---|---|
 | Agent entry point + TOC | `SKILL.md` |
+| Skillbook type declaration (`reference` or `guide`) | `SKILL.md` frontmatter + `package.json` (`skillbook.type`) |
 | Human-readable overview (catalog content) | `README.md` |
 | Project manifest + skillbook config | `package.json` |
 | Section overview + file index | `NN-section/00-overview.md` |
