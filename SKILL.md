@@ -14,7 +14,7 @@ metadata:
   skillbook-author: "Skillbooks"
   skillbook-contact: "https://github.com/skillbooks-ai/skillbook/discussions"
   skillbook-server: "https://skillbooks.ai"
-  skillbook-version: "1.1.0"
+  skillbook-version: "1.1.1"
   skillbook-pages: "23"
   skillbook-price: "$0.00"
   skillbook-tags: "false"

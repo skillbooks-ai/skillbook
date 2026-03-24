@@ -31,6 +31,7 @@ Before publishing:
 - [ ] Cross-references use relative paths
 - [ ] Version follows semver and matches in both files
 - [ ] If pages have `tags` frontmatter, `TAG-INDEX.json` is present and consistent
+- [ ] If `eval/` exists, it contains `EVAL.md` and optionally `eval-report.json`
 - [ ] `skillbook validate .` passes
 
 ## CI Integration

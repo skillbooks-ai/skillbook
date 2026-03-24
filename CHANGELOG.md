@@ -5,6 +5,17 @@ All notable changes to the Skillbook Format specification are documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-03-23
+
+### Added
+
+- `eval/` as standard optional directory: `EVAL.md` + `eval-report.json` served free, `raw/` not served
+- Skill Eval row in directory structure "What Belongs Where" table
+
+### Changed
+
+- Section overview target length from 20-40 to 20-80 lines (validated across 16+ books)
+
 ## [1.1.0] - 2026-03-12
 
 ### Added

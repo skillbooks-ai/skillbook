@@ -10,7 +10,7 @@ entry point — it orients the reader and indexes the section's contents.
 - **File index** — every file in the section with a one-line description
 - **Reading order** — if pages should be read in sequence, say so; if they're independent, say that too
 
-## Target Length: 20-40 lines
+## Target Length: 20-80 lines
 
 The `00-overview.md` is a paid page like any other content page. It should deliver real
 orientation value — not just duplicate the TOC entry.

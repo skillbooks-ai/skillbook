@@ -1,6 +1,6 @@
 {
   "name": "skillbook",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The Skillbook Format — specification for structured, commercial-grade AI agent knowledge bases.",
   "author": "skillbooks-ai",
   "license": "CC-BY-4.0",

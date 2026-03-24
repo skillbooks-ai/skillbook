@@ -8,6 +8,10 @@ eu-ai-act/
 ├── README.md             ← required: human-readable overview (populates catalog)
 ├── package.json          ← required: project manifest + skillbook config
 ├── TAG-INDEX.json        ← optional: O(1) tag → pages lookup (served free)
+├── eval/                 ← optional: Skill Eval results (served free)
+│   ├── EVAL.md           ← human/agent-readable eval report
+│   ├── eval-report.json  ← machine-readable eval report
+│   └── raw/              ← raw model responses (not served)
 ├── sources/              ← optional, required for verified books
 │   ├── SOURCES.md        ← index of source files
 │   └── [source files]    ← .txt, .pdf, .md — authoritative materials
@@ -34,6 +38,7 @@ eu-ai-act/
 | Section overview + file index | `NN-section/00-overview.md` |
 | Content pages | `NN-section/01-page.md` through `NN-page.md` |
 | Tag → pages lookup index | `TAG-INDEX.json` |
+| Skill Eval report + results | `eval/` (EVAL.md + eval-report.json served free, raw/ not served) |
 | Source documents (PDFs, regulations, papers) | `sources/` |
 | Generated verification artifacts | `.verify/` |
 
