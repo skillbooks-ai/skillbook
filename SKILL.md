@@ -82,9 +82,6 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 - `05-tooling/01-validation.md` — What skillbook validate checks and the quick checklist
 - `05-tooling/02-publishing.md` — Publishing workflow, updates, versioning, and self-hosting
 
-### 06 — Examples
-*Real skillbooks that implement this specification.*
-
 ### 06 — Contributing
 *How to suggest changes, report issues, and improve the spec.*
 
