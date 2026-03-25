@@ -1,7 +1,7 @@
 {
   "name": "skillbook",
   "version": "1.2.0",
-  "description": "The Skillbook Format — specification for structured, commercial-grade AI agent knowledge bases.",
+  "description": "The Skillbook Format specification — how to structure, write, and publish agent-native knowledge bases. Covers directory layout, SKILL.md authoring, content page conventions, package.json config, versioning, pricing, and validation.",
   "author": "skillbooks-ai",
   "license": "CC-BY-4.0",
   "keywords": ["skillbook", "agent-skills", "specification", "ai-agents", "knowledge-base"],
@@ -12,7 +12,7 @@
     "author": "Skillbooks",
     "contact": "https://github.com/skillbooks-ai/skillbook/discussions",
     "server": "https://skillbooks.ai",
-    "pages": 24,
+    "pages": 25,
     "price": "$0.00",
     "language": "en",
     "verified": false

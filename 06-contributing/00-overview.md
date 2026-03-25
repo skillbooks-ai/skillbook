@@ -12,6 +12,7 @@ report issues, and contribute improvements.
 ## Pages in This Section
 
 - `01-how-to-contribute.md` — Where to start, the discussion → issue → PR flow
+- `02-change-propagation.md` — What downstream artifacts must update when the spec changes
 
 ---
 

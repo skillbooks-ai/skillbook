@@ -52,4 +52,4 @@ This project follows the [Contributor Covenant](https://www.contributor-covenant
 
 ---
 
-[↑ Section](00-overview.md) | [🏠 Home](../SKILL.md)
+[↑ Section](00-overview.md) | [Next: Change Propagation →](02-change-propagation.md) | [🏠 Home](../SKILL.md)

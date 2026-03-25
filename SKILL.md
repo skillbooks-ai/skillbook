@@ -16,7 +16,7 @@ metadata:
   skillbook-contact: "https://github.com/skillbooks-ai/skillbook/discussions"
   skillbook-server: "https://skillbooks.ai"
   skillbook-version: "1.2.0"
-  skillbook-pages: "24"
+  skillbook-pages: "25"
   skillbook-price: "$0.00"
   skillbook-tags: "false"
   skillbook-keywords: "skillbook, specification, format, agent-skills, authoring"
@@ -90,6 +90,7 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 
 - `06-contributing/00-overview.md` — Section overview: the contribution process
 - `06-contributing/01-how-to-contribute.md` — Discussions, issues, PRs, and the style guide
+- `06-contributing/02-change-propagation.md` — What downstream artifacts must update when the spec changes
 
 ### 07 — Examples
 *Real skillbooks that implement this specification.*
