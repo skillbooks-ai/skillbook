@@ -69,16 +69,6 @@ For quick reference, here's where each downstream artifact lives:
 3. If a downstream update can't ship simultaneously, note the gap in the PR description
 4. Breaking changes (field renames, new required files) MUST update all artifacts before release
 
-## Mirror Copies
-
-The validate library and CLI each exist in two locations that MUST stay identical:
-
-- `packages/validate/src/` ↔ `platform/packages/validate/src/`
-- `packages/cli/src/` ↔ `platform/packages/cli/src/`
-
-After editing one, copy the changed files to the other. The test suite (`validate.test.ts`) should
-be run in both locations.
-
 ---
 
 [← Previous: How to Contribute](01-how-to-contribute.md) | [↑ Section](00-overview.md) | [🏠 Home](../SKILL.md)
