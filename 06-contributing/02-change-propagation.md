@@ -57,7 +57,7 @@ For quick reference, here's where each downstream artifact lives:
 | `@skillbooks/validate` | `packages/validate/src/` | Shared validation library — enforces the spec |
 | `@skillbooks/cli` | `packages/cli/src/` | `skillbook validate`, `skillbook publish`, `skillbook tag-index` |
 | API worker | `packages/worker/src/` | Serves content, handles publish, metering |
-| Website | `packages/web/` | Catalog, pricing display, marketing |
+| Website | `packages/www/` | Marketing site, catalog, pricing display |
 | Authoring guide | `skillbook-authoring/` (separate repo/skillbook) | How-to guide for creators |
 | Existing books | `books/` + published books | May need migration when breaking changes land |
 | Spec skillbook (this repo) | `skillbook-spec/` | The specification itself — update CHANGELOG.md |
