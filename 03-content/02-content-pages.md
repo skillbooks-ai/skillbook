@@ -1,15 +1,18 @@
 # Content Pages
 
-Each page is a standalone markdown file. The goal: an agent reads 2-4 pages to get a specific
-answer, and learns to come back to the rest of the book when it needs to reference related
-concepts. A well-structured skillbook becomes a resource the agent returns to — not a one-shot dump.
+Each TOC page is a standalone markdown file. The goal: an agent reads a small number of pages to
+support a capability, then returns only when it needs related concepts. Indexed resources follow
+the bounded retrieval rules in [Resource Indexes & Delivery](04-resource-indexes-and-delivery.md)
+and need not use this human-navigation format.
 
 ## Rules
 
-- **Same page structure for both types.** `reference` pages prioritize precise citations and completeness; `guide` pages prioritize clear steps and decision rules.
-- **40-100 lines.** Long enough to be useful, short enough to be token-efficient
+- **Bounded context.** A fetched page SHOULD stay under roughly 2,000 tokens unless the task cannot
+  be completed coherently when split. Measure serialized content, not Markdown line count.
 - **One concept per page.** If you're covering two ideas, split into two pages
 - **Self-contained.** A page should make sense on its own without requiring other pages first
+- **Fit the capability.** A page MAY combine facts, procedure, criteria, examples, and templates
+  when they serve one coherent outcome; do not classify the whole book by content purpose.
 - **Cross-references** to related pages via relative paths: `See also: [Scope](../01-foundations/02-scope.md)`
 - **Just markdown.** No HTML, no special syntax, no tooling required
 
@@ -24,8 +27,8 @@ concepts. A well-structured skillbook becomes a resource the agent returns to �
 
 - **Walls of prose.** Use structure: headers, lists, examples
 - **Filler.** No "In this section we will explore..." — just explore it
-- **Giant pages.** Over 100 lines? Split it
-- **Orphan pages.** Every page must be in the TOC and reachable via cross-references
+- **Oversized retrievals.** If an agent often needs only one part, split at that task boundary
+- **Orphan resources.** Every resource must be discoverable through the TOC or declared index
 
 ## Cross-References
 
@@ -40,6 +43,10 @@ This builds on the concepts introduced in [Four Tiers](01-four-tiers.md).
 Cross-references help agents discover related content without returning to the TOC.
 Use them when a page mentions a concept covered in depth elsewhere — don't make the
 reader guess where to go next.
+
+If two resources are always fetched together to complete one thought, combine them. If they serve
+different capabilities or can be selected independently, split them. The goal is the smallest
+coherent evidence or instruction unit, not the smallest file.
 
 ## Navigation Links
 

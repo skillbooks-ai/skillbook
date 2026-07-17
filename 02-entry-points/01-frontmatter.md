@@ -1,9 +1,9 @@
 # SKILL.md Frontmatter
 
-Skillbook frontmatter is a **strict superset of the [Agent Skills](https://agentskills.io/specification)
-open standard**. Any Agent Skills consumer (Claude Code, Cursor, VS Code/Copilot, Gemini CLI, etc.)
-can read skillbook SKILL.md files. Skillbook-specific fields live under `metadata` with a
-`skillbook-` prefix so they never clash with future Agent Skills fields.
+Skillbook frontmatter is a compatible extension of the
+[Agent Skills specification](https://agentskills.io/specification). Skillbook-specific fields
+live under `metadata` with a `skillbook-` prefix. Structured capabilities and resource delivery
+belong in `package.json`, not YAML frontmatter.
 
 ## Example
 
@@ -11,16 +11,14 @@ can read skillbook SKILL.md files. Skillbook-specific fields live under `metadat
 ---
 name: eu-ai-act
 description: >-
-  The EU Artificial Intelligence Act — full regulatory text with
-  risk classification guidance, compliance requirements, and
-  enforcement provisions.
-author: brookr
+  Apply and cite the EU Artificial Intelligence Act. Use when classifying AI-system risk,
+  determining compliance obligations, or answering questions that require authoritative text.
 license: "CC BY-NC 4.0"
 compatibility: "Requires HTTPS access to https://skillbooks.ai"
 
 metadata:
-  skillbook-type: "reference"
   skillbook-title: "EU AI Act"
+  skillbook-publisher: "brookr"
   skillbook-author: "European Parliament and Council of the European Union"
   skillbook-contact: "https://x.com/skillbooks"
   skillbook-server: "https://skillbooks.ai"
@@ -32,36 +30,41 @@ metadata:
 ---
 ```
 
-## Agent Skills Standard Fields
+## Agent Skills Fields
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | Yes | URL-safe identifier. Max 64 chars, lowercase + hyphens only. Used in paths. |
-| `description` | Yes | What the book covers. Max 1024 chars. Agents use this to decide relevance. |
-| `author` | Recommended | Who published this skill — the person or org that maintains the skillbook package. |
-| `license` | Yes | License identifier (e.g., `all-rights-reserved`, `CC BY-NC 4.0`). |
-| `compatibility` | Recommended | Environment requirements. For hosted skillbooks: `"Requires HTTPS access to https://skillbooks.ai"`. |
-| `metadata` | No | Key-value map for extension fields. All values must be strings. |
+| Field | Skillbook requirement | Description |
+|---|---|---|
+| `name` | MUST | URL-safe identifier. Max 64 chars, lowercase letters, numbers, and hyphens. |
+| `description` | MUST | What the book enables and when to use it. Max 1024 chars. |
+| `license` | MUST | License identifier or reference to a bundled license file. |
+| `compatibility` | SHOULD when needed | Environment, runtime, network, or system requirements. |
+| `metadata` | MAY | String-to-string map for namespaced extension fields. |
+| `allowed-tools` | MAY | Experimental Agent Skills field; support varies by client. |
 
-## Skillbook Extension Fields (under `metadata`)
+Top-level `author` and `version` are not Agent Skills fields. Put publisher and content-author
+identity in namespaced metadata and put the package version in `package.json`.
+
+## Skillbook Metadata
 
 | Key | Required | Description |
-|-----|----------|-------------|
-| `skillbook-type` | Yes | Either `"reference"` or `"guide"`. See [Types](../01-foundations/04-types.md). |
-| `skillbook-keywords` | Recommended | Comma-separated free-form keywords for discovery (like npm `keywords`). |
-| `skillbook-title` | Yes | Display title — the human-readable name of the book. |
-| `skillbook-author` | Recommended | Content author — distinct from `author` (the publisher). E.g., `author: brookr` published a skillbook where `skillbook-author: European Parliament`. |
-| `skillbook-contact` | No | Creator contact — an email, URL, or social handle. |
-| `skillbook-server` | Yes | Base URL for fetching pages. |
-| `skillbook-version` | Yes | Semver (major.minor.patch). |
-| `skillbook-pages` | Yes | Total page count (all content pages including `00-overview.md` files). |
-| `skillbook-price` | Yes | Full book price (display format, e.g., `"$14.00"` or `"$0.00"` for free). |
-| `skillbook-tags` | No | `"true"` if the book has a `TAG-INDEX.json`. |
+|---|---|---|
+| `skillbook-title` | Recommended | Human-readable display title. |
+| `skillbook-publisher` | Recommended | Person or organization maintaining and publishing the package. |
+| `skillbook-author` | Recommended | Originator of the domain content, distinct from publisher. |
+| `skillbook-contact` | No | Creator contact: email, URL, or social handle. |
+| `skillbook-server` | When hosted | Base URL for hosted pages and resources. |
+| `skillbook-version` | Recommended | Semver matching top-level `package.json.version`. |
+| `skillbook-pages` | No | Count of hosted content pages, including numbered overviews. |
+| `skillbook-price` | No | Display price, such as `"$14.00"` or `"$0.00"`. |
+| `skillbook-tags` | No | `"true"` when `TAG-INDEX.json` exists. |
+| `skillbook-keywords` | Recommended | Comma-separated discovery keywords. |
 
-All metadata values are strings per the Agent Skills spec. Parsers should coerce:
-`skillbook-pages` → integer, `skillbook-tags` → boolean, `skillbook-price` → display string.
+All metadata values MUST be strings. Parsers should coerce pages to integer, tags to boolean,
+and price to a display value. Capability IDs do not need a duplicated metadata string: agents
+read the root `## Capabilities` section and catalog tooling reads `package.json`.
 
-SKILL.md files should pass `skills-ref validate` from the Agent Skills SDK.
+Every root and nested capability entry SHOULD pass `skills-ref validate` from the Agent Skills
+reference library.
 
 ---
 

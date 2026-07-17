@@ -1,45 +1,35 @@
 # Pricing
 
-Skillbook access MAY be **metered per page**. When metering is enabled, authors set the
-**full book price**, and per-page price is derived automatically:
+Commerce is optional. A paid Skillbook SHOULD use a simple **per-book entitlement**: the user buys
+access to the capability pack and its compatible hosted resources, rather than paying each time an
+agent follows a resource pointer.
 
-```
-page_price = full_book_price / total_pages
-```
+Per-book access keeps the outcome predictable and preserves the purpose of progressive disclosure.
+Agents should retrieve the smallest useful context because it is faster and better—not because an
+unpredictable per-page meter discourages them from fetching necessary evidence.
 
-An agent that needs 3 pages out of 94 pays for 3 pages — not the whole book. This aligns cost
-with value: quick lookups are cheap, deep dives cost more.
+## Display Price
 
-## Suggested Pricing Tiers
+Authors MAY publish a full-book display price in `skillbook.price` and
+`metadata.skillbook-price`, such as `"$20.00"`. Set `"$0.00"` for free content. The value is
+catalog metadata, not a runtime authorization rule; hosted services determine entitlement status.
 
-These tiers are guidelines, not requirements. Authors set their own price.
+The v2 string form preserves compatibility with existing catalogs. Currency, regional pricing,
+subscriptions, team licensing, refunds, revenue splits, and taxes are platform concerns and are
+not encoded by this format.
 
-| Tier | Full Book | Per-Page (80 pages) | Typical Content |
-|------|----------|---------------------|-----------------|
-| Free | $0.00 | $0.00 | Open specs, samples, community resources |
-| Micro | $2–5 | $0.03–0.06 | Well-packaged public domain works, quick references, cheat sheets |
-| Standard | $5–15 | $0.06–0.19 | Methodologies, frameworks, how-to guides |
-| Premium | $15–30 | $0.19–0.38 | Professional certifications, industry-specific regulations |
-| Textbook | $30–50 | $0.38–0.63 | Comprehensive textbooks, technical references |
-| Enterprise | $50+ | $0.63+ | Actively maintained, high-update professional content |
+## What Users Buy
 
-## Free Skillbooks
+A useful entitlement gives the licensed user:
 
-Set `skillbook-price: "$0.00"` (SKILL.md) and `"price": "$0.00"` (package.json) for free content.
-All pages are accessible without credits. This is appropriate for open specifications,
-promotional samples, and community resources.
+- the declared capabilities and their small portable entry points
+- exact-resource access through the declared resolver
+- compatible corrections and additions within the purchased major version
+- clear license terms for using outputs and underlying material
 
-Note: public domain content (Shakespeare, government publications, classic literature) still
-takes work to structure, verify, and package into a well-navigated skillbook. That curation
-has value — pricing at $2–5 is reasonable and mirrors how public domain ebooks are sold on
-every major bookstore.
-
-## Platform Terms
-
-Revenue splits, payment processing, and billing terms are determined by the hosting
-platform — not by this format specification. The format defines *what* is metered (pages)
-and *how* pricing is expressed (full book price, derived per-page). The platform handles
-the rest.
+The package may be fully local or a thin hosted edition. Copyright instructions can state that
+resources are for the purchaser's work and must not be bulk-extracted or redistributed, but the
+standard does not define DRM or claim to make downloaded material uncopyable.
 
 ---
 

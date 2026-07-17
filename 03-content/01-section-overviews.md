@@ -1,7 +1,8 @@
 # Section Overviews: `00-overview.md`
 
-Every section folder must contain a `00-overview.md` as its first file. This is the section's
-entry point — it orients the reader and indexes the section's contents.
+Every numbered TOC section folder MUST contain a `00-overview.md` as its first file. This is the
+section's entry point — it orients the reader and indexes the section's contents. Indexed resource
+directories do not need this convention.
 
 ## What Goes in a `00-overview.md`
 
@@ -10,10 +11,11 @@ entry point — it orients the reader and indexes the section's contents.
 - **File index** — every file in the section with a one-line description
 - **Reading order** — if pages should be read in sequence, say so; if they're independent, say that too
 
-## Target Length: 20-80 lines
+## Keep It Concise
 
-The `00-overview.md` is a paid page like any other content page. It should deliver real
-orientation value — not just duplicate the TOC entry.
+The `00-overview.md` is a resource like any other content page. It should deliver real orientation
+value — not just duplicate the TOC entry. Include the smallest map that lets an agent choose the
+next resource without reading the section itself.
 
 ## Example
 

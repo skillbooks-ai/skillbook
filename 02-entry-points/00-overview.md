@@ -2,8 +2,8 @@
 
 Every skillbook has two entry points — one for agents, one for humans.
 
-- **SKILL.md** is the agent-facing entry point: frontmatter for discovery, navigation instructions,
-  and the full table of contents. Always served free.
+- **SKILL.md** is the agent-facing entry point: frontmatter for discovery, capability routing,
+  and concise resource navigation. Always served free.
 - **README.md** is the human-facing entry point: a product page that populates the catalog listing
   on skillbooks.ai (and renders on GitHub).
 
@@ -11,7 +11,7 @@ Every skillbook has two entry points — one for agents, one for humans.
 
 - You're writing a SKILL.md for a new skillbook
 - You need to understand the frontmatter format (Agent Skills + skillbook extensions)
-- You want to know how to write a good table of contents
+- You want to know how to route capabilities and expose TOC or indexed resource discovery
 - You're creating the README.md for your catalog listing
 
 ## Pages in This Section
