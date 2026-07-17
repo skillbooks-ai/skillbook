@@ -42,7 +42,6 @@ delivery. Agents continue to use ordinary `SKILL.md` entry points.
         "default": "local-first",
         "local": { "root": "knowledge/source", "optional": true },
         "hosted": {
-          "pathPrefix": "knowledge/source",
           "auth": { "scheme": "bearer", "environment": "SKILLBOOKS_API_KEY" },
           "versionHeader": "X-Skillbook-Version"
         }

@@ -27,7 +27,6 @@ Declare indexed resources under `skillbook.resources` in `package.json`:
     "default": "local-first",
     "local": { "root": "knowledge/source", "optional": true },
     "hosted": {
-      "pathPrefix": "knowledge/source",
       "auth": { "scheme": "bearer", "environment": "SKILLBOOKS_API_KEY" },
       "versionHeader": "X-Skillbook-Version"
     }
@@ -72,9 +71,9 @@ and MUST NOT print authentication credentials.
 
 A complete author edition MAY include local source modules. A thin installed edition MAY
 contain only capability entries, resolver scripts, and the pointer index, then fetch licensed
-modules from the configured server. The package `name` and `skillbook.server` define the hosted
-book namespace; `pathPrefix` defines the resource subtree. Unless a platform documents an
-equivalent resolver, the hosted URL is `{server}/{name}/{location}`.
+modules from the configured server. The package `name`, `skillbook.server`, and pointer `location`
+define the hosted resource. Unless a platform documents an equivalent resolver, the hosted URL is
+`{server}/{name}/{location}`.
 
 If both delivery modes exist, the resolver SHOULD default to local-first unless the manifest
 states otherwise. The declared default MUST name an included mode; `local-first` and

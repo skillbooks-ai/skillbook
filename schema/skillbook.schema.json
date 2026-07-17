@@ -98,9 +98,7 @@
         },
         "hosted": {
           "type": "object",
-          "required": ["pathPrefix"],
           "properties": {
-            "pathPrefix": { "$ref": "#/$defs/relativePath" },
             "auth": { "$ref": "#/$defs/auth" },
             "versionHeader": { "type": "string", "minLength": 1 }
           },
