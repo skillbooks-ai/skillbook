@@ -30,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Clarified that agent-consumable resources need not duplicate a human-readable book layout
 - Replaced arbitrary Markdown line targets with task-bounded resources and a roughly 2,000-token
   progressive-disclosure target
+- Clarified that positional contentless FTS indexes can expose reconstructable token sequences;
+  protected thin editions should use metadata-only local routing or entitlement-gated hosted search
 
 ### Removed
 

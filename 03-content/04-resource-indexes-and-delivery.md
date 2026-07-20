@@ -39,6 +39,13 @@ the standard does not require SQLite. The installed index SHOULD be small enough
 locally and MAY be a binary artifact. Publishers and installers MUST preserve a declared
 index even when it is not a text file.
 
+A contentless full-text index does not contain page-body columns, but it may still expose ordered
+normalized tokens and positions from which much of the indexed prose can be reconstructed. A thin
+edition intended to keep licensed text hosted SHOULD therefore bundle only non-sensitive routing
+metadata or a coarse local index and let the declared search program query an entitlement-gated
+hosted search service. Publishers MUST NOT describe a positional full-corpus FTS index as keeping
+the indexed knowledge hosted-only.
+
 ## Pointer Contract
 
 Resource URIs MUST be stable within a major version and use:
@@ -89,7 +96,8 @@ SHOULD be published atomically.
 ## Licensing and Context Discipline
 
 An index is a routing artifact, not DRM. A contentless search index can avoid storing page
-bodies while still indexing terms; authors MUST NOT describe that as copy protection.
+bodies while still indexing terms and positions; authors MUST NOT describe that as copy
+protection.
 License instructions SHOULD tell agents to use fetched material for the licensed user's task
 without bulk extraction or redistribution.
 
