@@ -2,7 +2,7 @@
 
 ## License
 
-Every SKILL.md must include a `## License` section. Agents read this before fetching paid
+Every SKILL.md must include a `## License` section. Agents read this before fetching licensed
 content — it's the agreement.
 
 **Minimum required content:**

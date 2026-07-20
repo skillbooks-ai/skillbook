@@ -1,7 +1,7 @@
 # Tags & TAG-INDEX.json
 
-Tags provide an alternative discovery path — instead of navigating the TOC, an agent can
-look up pages by topic directly.
+Tags provide a simple alternative discovery path for page-oriented books. They do not replace
+the richer pointer contract for large indexed or hosted resource sets.
 
 ## Page Tags (optional)
 
@@ -54,4 +54,4 @@ tag lookups without additional requests.
 
 ---
 
-[← Previous: Content Pages](02-content-pages.md) | [↑ Section](00-overview.md) | [🏠 Home](../SKILL.md)
+[← Previous: Content Pages](02-content-pages.md) | [↑ Section](00-overview.md) | [Next: Resource Indexes & Delivery →](04-resource-indexes-and-delivery.md) | [🏠 Home](../SKILL.md)

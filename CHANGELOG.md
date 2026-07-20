@@ -5,6 +5,39 @@ All notable changes to the Skillbook Format specification are documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-07-17
+
+### Added
+
+- Outcome-based `skillbook.capabilities` declarations with stable IDs, activation conditions,
+  observable outcomes, Agent Skills entry points, and optional evaluation references
+- Optional `skillbook.resources` contract for pointer-only search, bounded fetch, portable local
+  or hosted delivery, version compatibility, and digest verification
+- Machine-readable JSON Schema for the v2 `package.json` manifest
+- Three-condition capability evaluation guidance covering web, no-web, and no-web-plus-Skillbook
+  runs, with frozen entries, transfer cases, blind judging, and efficiency evidence
+- Capability examples for Shakespeare, EPA 608 / HVAC test prep, and THRV Jobs-to-be-Done
+
+### Changed
+
+- Made the capability the unit of discovery, activation, and evaluation within the book bundle
+- Allowed TOC navigation, indexed retrieval, or both; large books no longer need to enumerate
+  every resource in the root entry
+- Replaced per-page metering guidance with optional per-book entitlements and compatible hosted
+  updates within a major version
+- Corrected Agent Skills frontmatter: publisher information now uses namespaced
+  `metadata.skillbook-publisher` instead of a non-standard top-level `author` field
+- Clarified that agent-consumable resources need not duplicate a human-readable book layout
+- Replaced arbitrary Markdown line targets with task-bounded resources and a roughly 2,000-token
+  progressive-disclosure target
+- Clarified that positional contentless FTS indexes can expose reconstructable token sequences;
+  protected thin editions should use metadata-only local routing or entitlement-gated hosted search
+
+### Removed
+
+- Global `reference` / `guide` type classification and `skillbook.type`
+- `metadata.skillbook-type`
+
 ## [1.2.0] - 2026-03-24
 
 ### Added

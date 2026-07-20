@@ -1,20 +1,28 @@
 {
   "name": "skillbook",
-  "version": "1.2.0",
-  "description": "The Skillbook Format specification — how to structure, write, and publish agent-native knowledge bases. Covers directory layout, SKILL.md authoring, content page conventions, package.json config, versioning, pricing, and validation.",
+  "$schema": "schema/skillbook.schema.json",
+  "version": "2.0.0",
+  "description": "The Skillbook Format specification — package expert-authored capabilities, progressively disclosed resources, and evaluation evidence for AI agents.",
   "author": "skillbooks-ai",
   "license": "CC-BY-4.0",
   "keywords": ["skillbook", "agent-skills", "specification", "ai-agents", "knowledge-base"],
   "private": true,
   "skillbook": {
-    "type": "reference",
     "title": "The Skillbook Format",
     "author": "Skillbooks",
     "contact": "https://github.com/skillbooks-ai/skillbook/discussions",
     "server": "https://skillbooks.ai",
-    "pages": 25,
+    "pages": 27,
     "price": "$0.00",
     "language": "en",
-    "verified": false
+    "verified": false,
+    "capabilities": [
+      {
+        "id": "author-skillbooks",
+        "when": "Designing, reviewing, validating, or publishing an expert-authored Skillbook",
+        "outcome": "A portable Skillbook with clear capability activation, progressive resource delivery, and evaluation evidence",
+        "entry": "SKILL.md"
+      }
+    ]
   }
 }

@@ -1,35 +1,37 @@
 # Versioning
 
-Skillbooks use strict **semver** (major.minor.patch). For hosted skillbooks with metered access,
-version bumps determine what gets billed. For all skillbooks, they signal the scope of change.
+Skillbooks use strict **semver** (major.minor.patch). Versions communicate whether an installed
+capability contract and its resource pointers remain compatible.
 
-## How Version Changes Affect Metering
+## Capability Compatibility
 
-| Change | Example | What Happens |
-|--------|---------|--------------|
-| **Patch** | 1.0.0 → 1.0.1 | Typos, formatting, small fixes. **No new charges.** Already-accessed pages remain free. |
-| **Minor** | 1.0.0 → 1.1.0 | New pages, expanded content. **New pages cost credits; existing accessed pages remain free.** |
-| **Major** | 1.0.0 → 2.0.0 | Significant rewrite or restructure. **Treated as a new book — all pages cost credits again.** |
+| Change | Example | Meaning |
+|---|---|---|
+| **Patch** | 1.0.0 → 1.0.1 | Corrections and instruction improvements that preserve outcomes, entries, and resource IDs. |
+| **Minor** | 1.0.0 → 1.1.0 | New backward-compatible capabilities or resources. Existing activation and pointers still work. |
+| **Major** | 1.0.0 → 2.0.0 | Removed or incompatible outcomes, entries, delivery behavior, or stable resource IDs. |
 
-## What This Means for Authors
+More specifically:
 
-- **Fix typos freely.** Patch bumps never charge readers again. Ship corrections without guilt.
-- **Add content incrementally.** Minor bumps let you grow the book over time. Existing readers
-  only pay for new pages they access.
-- **Major rewrites reset the meter.** Use this when content has changed so fundamentally that
-  prior access doesn't represent the current book.
+- Adding a capability or new optional resources is normally a **minor** change.
+- Fixing instructions without changing the promised outcome is normally a **patch** change.
+- Removing a capability, changing its outcome incompatibly, changing stable resource IDs, or
+  breaking existing activation paths is a **major** change.
 
-## What This Means for Operators
+## Hosted Updates
 
-- **Patches are free updates.** Subscribe to a book once, get all fixes automatically.
-- **Minor versions are predictable.** You only pay when your agent accesses genuinely new content.
-- **Major versions are explicit.** A major bump signals significant change — you can choose
-  whether to upgrade.
+Hosted resources and the installed index MUST be version-compatible. Publishers SHOULD make
+patch and minor improvements available to an existing entitlement within the same major version;
+continuous expert maintenance is a central benefit of hosted delivery. A major version requires
+an explicit client upgrade and MAY be sold separately under platform terms.
+
+The format does not silently update capability instructions during a run. An installer or client
+selects a package version, and the resolver verifies fetched content against that package's index.
 
 ## Sync
 
-The version must match in both `package.json` (`version`) and SKILL.md frontmatter
-(`metadata.skillbook-version`). `skillbook validate` checks this.
+When root metadata exposes `skillbook-version`, it must match `package.json.version`.
+`skillbook validate` checks this.
 
 ---
 

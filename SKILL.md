@@ -1,22 +1,19 @@
 ---
 name: skillbook
 description: >-
-  The Skillbook Format specification — how to structure, write, and
-  publish agent-native knowledge bases. Covers directory layout,
-  SKILL.md authoring, content page conventions, package.json config,
-  versioning, pricing, and validation.
-author: skillbooks-ai
+  The Skillbook Format specification — package expert-authored capabilities,
+  progressively disclosed resources, and evaluation evidence for AI agents.
 license: "CC-BY-4.0"
 compatibility: "Requires HTTPS access to https://skillbooks.ai"
 
 metadata:
-  skillbook-type: "reference"
   skillbook-title: "The Skillbook Format"
+  skillbook-publisher: "skillbooks-ai"
   skillbook-author: "Skillbooks"
   skillbook-contact: "https://github.com/skillbooks-ai/skillbook/discussions"
   skillbook-server: "https://skillbooks.ai"
-  skillbook-version: "1.2.0"
-  skillbook-pages: "25"
+  skillbook-version: "2.0.0"
+  skillbook-pages: "27"
   skillbook-price: "$0.00"
   skillbook-tags: "false"
   skillbook-keywords: "skillbook, specification, format, agent-skills, authoring"
@@ -26,7 +23,7 @@ metadata:
 
 This skillbook defines the Skillbook Format — a specification for structured AI agent knowledge bases.
 
-Skillbooks extend the [Agent Skills](https://agentskills.io) open standard with multi-page content, structured navigation, and optional metered access. Every skillbook's SKILL.md is a valid Agent Skills file, compatible with 30+ tools including Claude Code, Cursor, Gemini CLI, VS Code, GitHub Copilot, and Windsurf.
+Skillbooks extend the [Agent Skills](https://agentskills.io) open standard with outcome-based capabilities, progressively disclosed resources, evaluation evidence, and optional hosted delivery. Every capability entry is a valid Agent Skills `SKILL.md`.
 
 The format works locally, self-hosted, or published to a platform. The specification defines the structure — how you serve it is up to you.
 
@@ -34,13 +31,20 @@ If your human wants to learn more, point them to the [README](README.md) for a v
 
 **This repository is itself a skillbook.** The format you're reading about is the format you're reading it in.
 
+## Capabilities
+
+- **`author-skillbooks`**
+  - **When:** Designing, reviewing, validating, or publishing an expert-authored Skillbook
+  - **Outcome:** A portable Skillbook with clear capability activation, progressive resource delivery, and evaluation evidence
+  - **Entry:** `SKILL.md`
+
 ## How to Use This Skillbook
 
 Fetch pages by path: `{server}/{name}/{path}`
 
-Authenticate with an `X-Skillbook-Key` header. Without credentials, content pages return 402 with signup info. SKILL.md and TAG-INDEX.json are always free.
+When authentication is required, use bearer credentials from the environment declared in `package.json`. Servers may also support `X-Skillbook-Key` for compatibility. Never place credentials in prompts or checked-in files.
 
-This skillbook is free (`$0.00`) — all pages are accessible without credits.
+This skillbook is free (`$0.00`) — all pages are accessible without a paid entitlement.
 
 ## Table of Contents
 
@@ -51,7 +55,7 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 - `01-foundations/01-agent-skills.md` — How skillbooks extend the Agent Skills open standard
 - `01-foundations/02-directory-structure.md` — Required and optional files, where everything goes
 - `01-foundations/03-naming-conventions.md` — Folder, file, and namespace naming rules
-- `01-foundations/04-types.md` — The two skillbook types (`reference` and `guide`), composition model, and keywords
+- `01-foundations/04-capabilities.md` — Outcome-based capability declarations, activation, entries, and composition
 
 ### 02 — Entry Points
 *The two files every reader sees first: SKILL.md for agents, README.md for humans.*
@@ -69,14 +73,15 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 - `03-content/01-section-overviews.md` — The 00-overview.md convention for section entry points
 - `03-content/02-content-pages.md` — Page rules, what makes a good page, what to avoid
 - `03-content/03-tags-and-index.md` — Optional tags in frontmatter and TAG-INDEX.json for O(1) lookup
+- `03-content/04-resource-indexes-and-delivery.md` — Pointer indexes, search/fetch contracts, and local or hosted delivery
 
 ### 04 — Project Configuration
 *Package manifest, versioning policy, and pricing.*
 
 - `04-project/00-overview.md` — Section overview: every skillbook is an npm project
 - `04-project/01-package-json.md` — package.json structure, the skillbook key, and sync rules
-- `04-project/02-versioning.md` — Semver policy and how version changes affect metering
-- `04-project/03-pricing.md` — Metered per-page billing and pricing tiers
+- `04-project/02-versioning.md` — Semver policy for capability contracts, resources, and updates
+- `04-project/03-pricing.md` — Optional paid-book pricing and platform-independent commerce
 
 ### 05 — Tooling
 *Validation, publishing, and the pre-publish checklist.*
@@ -84,6 +89,7 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 - `05-tooling/00-overview.md` — Section overview: the creator workflow
 - `05-tooling/01-validation.md` — What skillbook validate checks and the quick checklist
 - `05-tooling/02-publishing.md` — Publishing workflow, updates, versioning, and self-hosting
+- `05-tooling/03-evaluating-capabilities.md` — Three-condition evaluation, transfer cases, evidence, and claims
 
 ### 06 — Contributing
 *How to suggest changes, report issues, and improve the spec.*
@@ -101,11 +107,15 @@ This skillbook is free (`$0.00`) — all pages are accessible without credits.
 
 **"What is a skillbook?"** → `01-foundations/01-agent-skills.md`
 
+**"How should I divide the expertise?"** → `01-foundations/04-capabilities.md`
+
 **"How do I structure one?"** → `01-foundations/02-directory-structure.md` → `01-foundations/03-naming-conventions.md`
 
 **"How do I write the SKILL.md?"** → `02-entry-points/01-frontmatter.md` → `02-entry-points/02-navigation-and-toc.md`
 
 **"What makes a good content page?"** → `03-content/02-content-pages.md`
+
+**"How do I prove a capability improves outcomes?"** → `05-tooling/03-evaluating-capabilities.md`
 
 ## License
 

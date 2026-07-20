@@ -1,63 +1,74 @@
 # Directory Structure
 
-Every skillbook follows this layout:
+Every Skillbook has a portable root skill and project manifest. It MAY add independent
+capability entries, human-navigable pages, indexed resources, or any combination.
 
-```
-eu-ai-act/
-├── SKILL.md              ← required: agent entry point + TOC (served free)
-├── README.md             ← required: human-readable overview (populates catalog)
-├── package.json          ← required: project manifest + skillbook config
-├── TAG-INDEX.json        ← optional: O(1) tag → pages lookup (served free)
-├── eval/                 ← optional: Skill Eval results (served free)
-│   ├── EVAL.md           ← human/agent-readable eval report
-│   ├── eval-report.json  ← machine-readable eval report
-│   └── raw/              ← raw model responses (not served)
-├── sources/              ← optional, required for verified books
-│   ├── SOURCES.md        ← index of source files
-│   └── [source files]    ← .txt, .pdf, .md — authoritative materials
-├── 01-foundations/
-│   ├── 00-overview.md    ← section overview + file index
-│   ├── 01-purpose.md     ← content page
-│   └── 02-scope.md
-├── 02-risk-classification/
+```text
+thrv-jtbd/
+├── SKILL.md                 ← required: agent entry point and capability routing
+├── README.md                ← required: human-readable catalog overview
+├── package.json             ← required: project manifest and structured config
+├── skills/                  ← optional: independently activatable capabilities
+│   ├── frame-market/
+│   │   └── SKILL.md
+│   └── map-job/
+│       └── SKILL.md
+├── scripts/                 ← optional: deterministic search, fetch, or workflow tools
+│   ├── search_resources.py
+│   └── fetch_resource.py
+├── knowledge/               ← optional: author-defined indexed resource layout
+│   ├── index.sqlite
+│   └── source/              ← optional in a thin hosted installation
+├── 01-foundations/          ← optional: human-navigable page sections
 │   ├── 00-overview.md
-│   ├── 01-four-tiers.md
-│   └── ...
-└── .verify/              ← generated verification artifacts (do not author)
-    ├── AUDIT-MANIFEST.md
-    └── VERIFY-REPORT.md
+│   └── 01-purpose.md
+├── TAG-INDEX.json           ← optional: simple tag → page lookup (served free)
+├── eval/                    ← optional: capability evidence (summary served free)
+│   ├── EVAL.md
+│   ├── eval-report.json
+│   └── raw/                 ← raw model responses (not necessarily served)
+├── sources/                 ← optional: verification sources for authors/tooling
+│   ├── SOURCES.md
+│   └── [source files]
+└── .verify/                 ← generated verification artifacts
 ```
 
 ## What Belongs Where
 
-| Content type | Goes in |
+| Content | Goes in |
 |---|---|
-| Agent entry point + TOC | `SKILL.md` |
-| Skillbook type declaration (`reference` or `guide`) | `SKILL.md` frontmatter + `package.json` (`skillbook.type`) |
-| Human-readable overview (catalog content) | `README.md` |
-| Project manifest + skillbook config | `package.json` |
-| Section overview + file index | `NN-section/00-overview.md` |
-| Content pages | `NN-section/01-page.md` through `NN-page.md` |
-| Tag → pages lookup index | `TAG-INDEX.json` |
-| Skill Eval report + results | `eval/` (EVAL.md + eval-report.json served free, raw/ not served) |
-| Source documents (PDFs, regulations, papers) | `sources/` |
+| Root agent discovery, shared rules, capability routing | `SKILL.md` |
+| Structured capability, resource, delivery, and catalog config | `package.json` (`skillbook`) |
+| Independently activatable task procedures | `skills/<capability>/SKILL.md` |
+| Deterministic executable operations | `scripts/` |
+| Detailed on-demand references for a capability | Its Agent Skills `references/` directory |
+| Large indexed corpus and pointer index | Author-declared path such as `knowledge/` |
+| Human-navigable book pages | Numbered section directories |
+| Human-readable product overview | `README.md` |
+| Simple tag → page lookup | `TAG-INDEX.json` |
+| Capability eval summaries and records | `eval/` |
+| Source documents used for verification | `sources/` |
 | Generated verification artifacts | `.verify/` |
 
-Do not put source documents in content directories, and do not put content pages in `sources/`.
+Do not duplicate the same material across capability entries, pages, and indexed resources.
+Keep procedures in capability entry points and load detailed material only when needed.
+
+## Navigation Patterns
+
+A Skillbook MAY use either or both patterns:
+
+1. **TOC navigation** — best for a bounded set of human-readable pages. Numbered section folders
+   use `00-overview.md` and descriptive entries in the root TOC.
+2. **Indexed retrieval** — best for large or agent-optimized corpora. The root explains how to
+   search pointers and fetch exact resources; the full corpus does not need to appear in SKILL.md.
+
+Every resource needed by a capability MUST be discoverable through at least one declared pattern.
 
 ## Repo-Level Files
 
-When a skillbook is published as a repository, standard repo files coexist alongside the
-skillbook structure:
-
-- `LICENSE` / `LICENSE-*` — repository license files
-- `CONTRIBUTING.md` — contribution guidelines
-- `CHANGELOG.md` — project changelog
-- `.gitignore`, `.github/` — repo tooling
-
-These are not part of the skillbook content. They're the same files any open-source project
-would include. The skillbook format ignores them — `skillbook validate` only checks
-skillbook-specific files.
+Standard repository files such as `LICENSE`, `CONTRIBUTING.md`, `CHANGELOG.md`, `.gitignore`,
+and `.github/` MAY coexist with the Skillbook. Validation ignores them unless another declared
+contract references them.
 
 ---
 

@@ -19,7 +19,7 @@ Consistent naming makes skillbooks predictable for both agents and authors.
 
 Books live at the top of the server namespace: `{server}/{name}/`.
 
-- The `server` value is set in SKILL.md metadata (e.g., `https://skillbooks.ai`)
+- The `server` value is set in `package.json`; root SKILL.md metadata may mirror it for agents
 - Book names are **first-come, first-served** within a given server (like npm packages)
 - No author prefix — it's `{server}/eu-ai-act`, not `{server}/brookr/eu-ai-act`
 - Names must be URL-safe: lowercase, hyphens only, max 64 characters

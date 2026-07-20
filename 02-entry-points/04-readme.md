@@ -28,7 +28,7 @@ and not the end users (they never see this).
 
 ## Relationship to SKILL.md
 
-- **SKILL.md** = storefront for agents (TOC, navigation, metadata)
+- **SKILL.md** = runtime entry point for agents (capabilities, navigation, shared rules)
 - **README.md** = product page for humans (why this book, who it's for, what's inside)
 
 Both are required. Both are served free. They serve different audiences.
